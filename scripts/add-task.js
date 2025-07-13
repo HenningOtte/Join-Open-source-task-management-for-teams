@@ -1,8 +1,7 @@
 let subtask = [];
 let users = [];
 let selectedPriority = "medium";
-let taskAssigned = [];
-let taskCategory = null;
+let assignedUserArr = [];
 
 async function init() {
   let usersObj = await loadData("users");
@@ -34,6 +33,7 @@ function toggleCategoryDropdown() {
 
 function activePriority(index) {
   const priorities = ["urgent", "medium", "low"];
+  selectedPriority = priorities[index];
   priorities.forEach((priority) => {
     const btn = document.getElementById(priority);
     const icon = document.getElementById(`${priority}-btn-icon`);
@@ -103,9 +103,9 @@ function editSubItem(id, editMode) {
 }
 
 function selectCategory(e) {
+  let value = e.target.innerHTML;
   const selectCategory = document.getElementById("select-category");
-  selectCategory.innerHTML = e.target.innerHTML;
-  taskCategory = e.target.innerHTML;
+  selectCategory.innerHTML = value;
   toggleCategoryDropdown();
 }
 
@@ -145,10 +145,12 @@ function assignedUser(name) {
     users[index].assigned = true;
     loadUsers();
     loadAssignedUserIcons();
+    assignedUserArr.push(users[index]);
   } else {
     users[index].assigned = false;
     loadUsers();
     loadAssignedUserIcons();
+    removeUserFromArray(name);
   }
 }
 
@@ -171,29 +173,77 @@ function loadAssignedUserIcons() {
   });
 }
 
-// -----------------------------------------------
-
-function createTaskObject() {
-  let taskTitle = document.getElementById("titleInput").value;
-  let taskDescription = document.querySelector(".textarea-description").value;
-  let taskDate = document.getElementById("date").value;
-  let taskPriority = selectedPriority;
-  users.forEach((user) => {
-    if (user.assigned) {
-      taskAssigned.push(user);
+function removeUserFromArray(name) {
+  let arr = [];
+  assignedUserArr.forEach((user) => {
+    if (user.name != name) {
+      arr.push(user);
     }
   });
+  assignedUserArr = arr;
+}
 
-  let task = {
-    title: taskTitle,
-    description: taskDescription,
-    date: taskDate,
-    priority: taskPriority,
-    assigned: taskAssigned,
-    category: taskCategory,
-    subtasks: subtask,
-    status: "in-progress",
+async function createTaskForm() {
+  let title = document.getElementById("titleInput");
+  let description = document.getElementById("description");
+  let date = document.getElementById("date");
+  let selectCategory = document.getElementById("select-category");
+
+  let validateTask = isTaskDataValid(title, date, selectCategory);
+  if (validateTask) return;
+  let task = taskObjTemplate(title.value, description.value, date.value, selectedPriority, assignedUserArr, selectCategory.innerHTML, subtask);
+  await createTask("tasks", task);
+}
+
+function isTaskDataValid(title, date, selectCategory) {
+  let openCategory = document.getElementById("open-category-dropdown");
+  let findError = false;
+  if (title.value.trim().length <= 0) {
+    showError(title, "title");
+    findError = true;
+  }
+  if (selectCategory.innerHTML == "Select Task category") {
+    showError(openCategory, "category");
+    findError = true;
+  }
+  if (!date.value.trim()) {
+    showError(date, "date");
+    findError = true;
+  }
+  return findError;
+}
+
+function clearInputError(target, error) {
+  target.classList.remove("light-red-outline");
+  target.classList.add("blue-outline");
+  error.innerHTML = "";
+}
+
+function showError(target, name) {
+  let error = document.getElementById(`${name}Error`);
+  target.classList.add("light-red-outline");
+  target.classList.remove("blue-outline");
+  error.innerHTML = "This field is required";
+  target.addEventListener("click", () => {
+    clearInputError(target, error);
+  });
+}
+
+function taskObjTemplate(titel, description, date, priority, users, category, subtask, status = "to-do") {
+  return {
+    title: titel,
+    description: description,
+    date: date,
+    priority: priority,
+    assigned: users,
+    category: category,
+    subtask: subtask,
+    status: status,
   };
+}
 
-  createTask("tasks/", task);
+function onFocusOut(e) {
+  let target = e.target;
+  target.classList.remove("light-red-outline");
+  target.classList.remove("blue-outline");
 }

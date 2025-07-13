@@ -31,8 +31,6 @@ function generateUserID(name) {
   return id;
 }
 
-//  ------------------------------------------
-
 async function createTask(path = "", data = {}) {
   let response = await fetch(BASE_URL + path + ".json", {
     method: "POST",
@@ -44,16 +42,3 @@ async function createTask(path = "", data = {}) {
   let responseToJson = await response.json();
   return responseToJson;
 }
-
-// function getSelectedPriority() {
-//   if (document.getElementById("urgent").classList.contains("active-urgent-btn")) {
-//     return "urgent";
-//   }
-//   if (document.getElementById("medium").classList.contains("active-medium-btn")) {
-//     return "medium";
-//   }
-//   if (document.getElementById("low").classList.contains("active-low-btn")) {
-//     return "low";
-//   }
-//   return null;
-// }

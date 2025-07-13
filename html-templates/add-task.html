@@ -78,21 +78,21 @@
                 <div class="addTask-Container">
                     <div class="task-container">
                         <label for="titleInput" class="task-name">
-                            Title<span class="star-important">*</span>
+                            Title<span class="red-font">*</span>
                         </label>
                         <input type="text" class="input-task" id="titleInput" placeholder="Enter a title">
-                        <span id="titleError" class="error-message" hidden>This field is required</span>
+                        <span id="titleError" class="error-message"></span>
                     </div>
                     <div class="task-container">
                         <label for="description-input" class="task-name">Description</label>
-                        <textarea name="" id="" class="textarea-description"></textarea>
+                        <textarea name="" id="description" class="textarea-description"></textarea>
                     </div>
                     <div class="task-container">
                         <label for="date" class="task-name">
-                            Due date<span class="star-important">*</span>
+                            Due date<span class="red-font">*</span>
                         </label>
                         <input type="date" class="input-task" id="date">
-                        <span id="titleError" class="error-message" hidden>This field is required</span>
+                        <span id="dateError" class="error-message"></span>
                     </div>
                 </div>
                 <div class="divider-vertical"></div>
@@ -132,12 +132,13 @@
                     </div>
                     <div>
                         <p class="task-name">
-                            Category<span class="star-important">*</span>
+                            Category<span class="red-font">*</span>
                         </p>
                         <div class="task-container" id="category-container">
-                            <div class="dropdown-container">
+                            <div class="dropdown-container" onclick="toggleCategoryDropdown()"
+                                id="open-category-dropdown">
                                 <span id="select-category">Select Task category</span>
-                                <button class="btn-dropdown" id="category-btn" onclick="toggleCategoryDropdown()">
+                                <button class="btn-dropdown" id="category-btn">
                                     <img src="../assets/icons/arrow_drop_down.svg" alt="">
                                 </button>
                             </div>
@@ -151,6 +152,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <span id="categoryError" class="error-message"></span>
                         </div>
                     </div>
                     <div class="task-container">
@@ -169,13 +171,13 @@
                 </div>
             </form>
             <div class="task-controls">
-                <p><span class="star-important">*</span>This field is required</p>
+                <p><span class="red-font">*</span>This field is required</p>
                 <div class="task-control-btns">
                     <button class="btn-clear">
                         Clear
                         <div class="clear-icon"></div>
                     </button>
-                    <button class="btn-create" onclick="createTaskObject()">
+                    <button class="btn-create" onclick="createTaskForm()">
                         Create Task
                         <img src="../assets/icons/check.svg" alt="">
                     </button>

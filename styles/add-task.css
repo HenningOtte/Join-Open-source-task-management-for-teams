@@ -42,7 +42,7 @@ button div {
 .addTask-Container {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
 }
 
 .task-container {
@@ -63,6 +63,7 @@ button div {
   padding: 0 16px 0 16px;
   height: 40px;
   width: 100%;
+  margin-bottom: 8px;
   border: 1px solid #d1d1d1;
   border-radius: 8px;
   background-color: white;
@@ -70,11 +71,19 @@ button div {
 }
 
 .input-task:focus {
-  outline: 1px solid #ff8190;
+  outline: transparent;
 }
 
 .input-task::placeholder {
   color: #d1d1d1;
+}
+
+.blue-outline {
+  border: 1px solid #4589ff;
+}
+
+.light-red-outline {
+  border: 1px solid #ff8190 !important;
 }
 
 .textarea-description {
@@ -87,8 +96,14 @@ button div {
   cursor: pointer;
 }
 
-.star-important {
+.red-font {
   color: #ff8190;
+}
+
+.error-message {
+  height: 16px;
+  color: #ff8190;
+  font-size: 16px;
 }
 
 .dropdown-container {
