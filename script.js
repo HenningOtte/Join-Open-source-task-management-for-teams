@@ -116,17 +116,6 @@ function updateLinksWithUserKey(target) {
   });
 }
 
-function updateMenuWithUserKey() {
-  let name = loadUrlParams();
-  const menu = document.querySelector(".menu").children;
-  if (!name) name = "Guest";
-  for (let index = 0; index < menu.length; index++) {
-    if (index == 2) break;
-    let newLink = menu[index].href + `?msg=${encodeURIComponent(name)}`;
-    menu[index].href = newLink;
-  }
-}
-
 function isPrivacyMessage() {
   let msg = loadUrlParams();
   if (msg === "privacy") adjustLayoutForPrivacyView();
@@ -143,7 +132,6 @@ function adjustLayoutForPrivacyView() {
 function initializeNavbar() {
   renderUserIcon();
   updateLinksWithUserKey("navLink");
-  updateMenuWithUserKey();
 }
 
 function toggleMenu() {

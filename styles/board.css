@@ -83,11 +83,6 @@ Board header
   cursor: pointer;
 }
 
-.add-btn:hover {
-  background-color: #28abe2;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
 .add-icon {
   width: 16px;
   height: 16px;

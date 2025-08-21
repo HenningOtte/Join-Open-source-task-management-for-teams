@@ -181,6 +181,17 @@ async function openUserInfos(id) {
     }, 100);
 }
 
+
+
+function closeUserInfo() {
+    const usersInfo = document.querySelector(".info-container");
+    const userDetails = document.querySelector(".user-details");
+    userDetails.classList.remove("translatex-user");
+    setTimeout(() => {
+        usersInfo.innerHTML = "";
+    }, 250);
+}
+
 function openAddContact() {
     const overlay = document.getElementById("overlay");
     openOverlay();

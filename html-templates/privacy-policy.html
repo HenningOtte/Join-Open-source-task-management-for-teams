@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="../styles/siderbar.css">
     <link rel="stylesheet" href="../styles/navbar.css">
     <link rel="stylesheet" href="../styles/add-task.css">
-    <link rel="stylesheet" href="../styles/responsive.css">
-    <link rel="stylesheet" href="../styles/navbar.css">
 
     <script src="../scripts/api.js"></script>
     <script src="../scripts/templates.js"></script>
@@ -26,33 +24,33 @@
         <nav class="nav-wrapper">
             <ul>
                 <li class="nav-link">
-                    <div class="img-wrapper">
+                    <a href="summary.html" data-task="navLink">
                         <img src="../assets/icons/summary.svg" alt="summary">
-                    </div>
-                    <a href="summary.html" data-task="navLink">Summary</a>
+                        Summary
+                    </a>
                 </li>
                 <li class="nav-link">
-                    <div class="img-wrapper">
+                    <a href="add-task.html" data-task="navLink">
                         <img src="../assets/icons/add-task.svg" alt="add-task">
-                    </div>
-                    <a href="add-task.html" data-task="navLink">Add Task</a>
+                        Add Task
+                    </a>
                 </li>
                 <li class="nav-link">
-                    <div class="img-wrapper">
+                    <a href="board.html" data-task="navLink">
                         <img src="../assets/icons/board.svg" alt="board">
-                    </div>
-                    <a href="board.html" data-task="navLink">Board</a>
+                        Board
+                    </a>
                 </li>
                 <li class="nav-link">
-                    <div class="img-wrapper">
+                    <a href="contacts.html" data-task="navLink">
                         <img src="../assets/icons/contacts.svg" alt="contacts">
-                    </div>
-                    <a href="contacts.html" data-task="navLink">Contacts</a>
+                        Contacts
+                    </a>
                 </li>
             </ul>
             <ul class="bottom-links">
                 <li class="nav-link selected"><a href="privacy-policy.html" data-task="navLink">Privacy Policy</a></li>
-                <li><a href="legal-notice.html" data-task="navLink">Legal Notice</a></li>
+                <li class="nav-link"><a href="legal-notice.html" data-task="navLink">Legal Notice</a></li>
             </ul>
         </nav>
     </div>
@@ -63,16 +61,16 @@
                     Kanban Project Management Tool
                 </h2>
                 <div class="nav-imgs">
-                    <a href="../html-templates/help.html"><img class="help-symbol" src="../assets/icons/help.svg" alt="help-symbol"></a>
-                     <button class="profile-picture" onclick="toggleMenu()"></button>
-                 </div>
+                    <img src="../assets/icons/help.svg" alt="help-symbol">
+                    <button class="profile-picture" onclick="toggleMenu()"></button>
+                </div>
             </nav>
             <div class="menu-container">
                 <div class="menu" id="menu">
-                    <a href="../html-templates/help.html" class="menu-item help-page">Help</a>
-                    <a href="./legal-notice.html" class="menu-item">Legal Notice</a>
-                    <a href="./privacy-policy.html" class="menu-item">Privacy Police</a>
-                    <a href="../index.html" class="menu-item">Log out</a>
+                    <a href="../html-templates/help.html" data-task="navLink" class="menu-item">Help</a>
+                    <a href="./legal-notice.html" data-task="navLink" class="menu-item">Legal Notice</a>
+                    <a href="./privacy-policy.html" data-task="navLink" class="menu-item">Privacy Police</a>
+                    <a href="../index.html" data-task="navLink" class="menu-item">Log out</a>
                 </div>
             </div>
         </section>

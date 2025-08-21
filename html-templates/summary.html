@@ -25,30 +25,28 @@
         <nav class="nav-wrapper">
             <ul>
                 <li class="nav-link selected">
-                    <div class="img-wrapper">
+                    <a href="summary.html" data-task="navLink">
                         <img src="../assets/icons/summary.svg" alt="summary">
-                    </div>
-                    <a href="summary.html" data-task="navLink">Summary</a>
+                        Summary
+                    </a>
                 </li>
-
                 <li class="nav-link">
-                    <div class="img-wrapper">
+                    <a href="add-task.html" data-task="navLink">
                         <img src="../assets/icons/add-task.svg" alt="add-task">
-                    </div>
-                    <a href="add-task.html" data-task="navLink">Add Task</a>
+                        Add Task
+                    </a>
                 </li>
-
                 <li class="nav-link">
-                    <div class="img-wrapper">
+                    <a href="board.html" data-task="navLink">
                         <img src="../assets/icons/board.svg" alt="board">
-                    </div>
-                    <a href="board.html" data-task="navLink">Board</a>
+                        Board
+                    </a>
                 </li>
                 <li class="nav-link">
-                    <div class="img-wrapper">
+                    <a href="contacts.html" data-task="navLink">
                         <img src="../assets/icons/contacts.svg" alt="contacts">
-                    </div>
-                    <a href="contacts.html" data-task="navLink">Contacts</a>
+                        Contacts
+                    </a>
                 </li>
             </ul>
             <ul class="bottom-links">
@@ -66,25 +64,23 @@
                     Kanban Project Management Tool
                 </h2>
                 <div class="nav-imgs">
-                   <a href="../html-templates/help.html"><img class="help-symbol" src="../assets/icons/help.svg" alt="help-symbol"></a>
+                    <img class="help-symbol" src="../assets/icons/help.svg" alt="help-symbol">
                     <button class="profile-picture" onclick="toggleMenu()"></button>
                 </div>
             </nav>
             <div class="menu-container">
                 <div class="menu" id="menu">
-                    <a href="../html-templates/help.html" class="menu-item help-page">Help</a>
-                    <a href="../html-templates/legal-notice.html" class="menu-item">Legal Notice</a>
-                    <a href="../html-templates/privacy-policy.html" class="menu-item">Privacy Police</a>
-                    <a href="../index.html" class="menu-item">Log out</a>
+                    <a href="../html-templates/help.html" data-task="navLink" class="menu-item">Help</a>
+                    <a href="./legal-notice.html" data-task="navLink" class="menu-item">Legal Notice</a>
+                    <a href="./privacy-policy.html" data-task="navLink" class="menu-item">Privacy Police</a>
+                    <a href="../index.html" data-task="navLink" class="menu-item">Log out</a>
                 </div>
             </div>
         </section>
 
         <section id="content-wrapper">
-            <div class="main-wrapper" id="main">
-                <div class="intro" id="intro">
-                    <h1>Good Morning!</h1>
-                </div>
+            <div class="main-wrapper">
+
                 <div class="header-title">
                     <h1>Join 360</h1>
                     <h2 class="mobile-view">Key Metrics at a Glance</h2>
@@ -94,7 +90,6 @@
 
                 <section class="dashboard-summary">
                     <div class="parent">
-
                         <a href="board.html" class="div1 metric-item" data-task="navLink">
                             <div class="metric-icon"></div>
                             <div>
@@ -102,7 +97,6 @@
                                 <span class="metric-label">To-do</span>
                             </div>
                         </a>
-
                         <a href="board.html" class="div2 metric-item" data-task="navLink">
                             <div class="metric-icon"></div>
                             <div>
@@ -110,11 +104,10 @@
                                 <span class="metric-label">Done</span>
                             </div>
                         </a>
-
                         <a href="board.html" class="div3 metric-item" data-task="navLink">
                             <div class="metric-urgent-wrapper">
                                 <div class="metric-urgent-icon">
-                                    <img src="../assets/icons/Group 7.svg" alt="urgent" class="grow-icon">
+                                    <img src="../assets/icons/urgent.svg" alt="urgent">
                                 </div>
                                 <div>
                                     <span class="metric-count" data-task="urgent"></span>
@@ -127,17 +120,14 @@
                                 <span class="metric-label">Upcoming Deadline</span>
                             </div>
                         </a>
-
                         <a href="board.html" class="div4 metric-item metric-bottom-row" data-task="navLink">
                             <span class="metric-count" data-task="total-tasks"></span>
                             <span class="metric-label">Tasks in Board</span>
                         </a>
-
                         <a href="board.html" class="div5 metric-item metric-bottom-row" data-task="navLink">
                             <span class="metric-count" data-task="in-progress"></span>
                             <span class="metric-label">Tasks in Progress</span>
                         </a>
-
                         <a href="board.html" class="div6 metric-item metric-bottom-row" data-task="navLink">
                             <span class="metric-count" data-task="await-feedback"></span>
                             <span class="metric-label">Awaiting Feedback</span>

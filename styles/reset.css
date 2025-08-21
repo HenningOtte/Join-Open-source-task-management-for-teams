@@ -24,7 +24,7 @@ body {
   height: 100vh;
 }
 
-/*  img entfernt*/
+img,
 picture,
 svg,
 video {

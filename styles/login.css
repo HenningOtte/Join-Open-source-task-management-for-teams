@@ -221,12 +221,3 @@ body {
 }
 
 /* ------------------- */
-
-
-@media(max-width: 360px) {
-  .join-logo-signup {
-    width: 84px;
-    height: 84px;
-    padding: 0;
-  }
-}

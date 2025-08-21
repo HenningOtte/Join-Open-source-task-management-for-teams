@@ -47,7 +47,7 @@
 .titel-container {
   position: relative;
   display: flex;
-  align-items: anchor-center;
+  align-items: center;
   justify-content: center;
 }
 
@@ -57,11 +57,6 @@
   width: 30px;
   height: 30px;
   cursor: pointer;
-  align-items: center;
-}
-
-.login-title {
-  font-size: 32px;
 }
 
 .main {
@@ -193,19 +188,3 @@
 }
 
 /* ------------------- */
-
-@media(max-width: 360px) {
-  .join-logo-signup {
-    width: 130px;
-    height: 130px;
-  }
-
-  .header {
-    padding: 0;
-    margin-bottom: 40px;
-  }
-
-  .signup-container {
-    width: 320px;
-  }
-}
