@@ -337,6 +337,7 @@ function dragoverHandler(ev) {
   } else {
     column.insertBefore(draggable, afterElement);
   }
+  adjustPlaceholders();
 }
 
 function getDragAfterElement(column, y) {
@@ -364,7 +365,7 @@ async function dropHandler(ev, category) {
   taskObj.status = category;
 
   if (targetColumn) {
-    adjustPlaceholders();
+    // adjustPlaceholders();
     await putData("tasks/" + taskId, taskObj);
     await adjustTaskOrder(targetColumn);
   }
