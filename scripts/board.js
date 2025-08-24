@@ -191,7 +191,9 @@ async function deleteTask(path) {
 
 async function searchTasks() {
   const tasks = await loadData("/tasks");
-  const searchInput = document.getElementById("search-input").value.toLowerCase();
+  const desktopInput = document.getElementById("search-input-desktop").value.toLowerCase();
+  const mobileInput = document.getElementById("search-input-mobile").value.toLowerCase();
+  const searchInput = desktopInput || mobileInput;
   const tasksObjLength = Object.keys(tasks).length;
 
   for (let task in tasks) {
@@ -400,7 +402,8 @@ async function adjustTaskOrder(targetColumn) {
 
 async function initBoard() {
   let taskObj = await loadData("tasks/");
-  document.getElementById("search-input").value = "";
+  document.getElementById("search-input-desktop").value = "";
+  document.getElementById("search-input-mobile").value = "";
   renderBoard(taskObj);
 }
 
