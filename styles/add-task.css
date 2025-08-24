@@ -69,7 +69,6 @@ button div {
   border: 1px solid #d1d1d1;
   border-radius: 8px;
   background-color: white;
-  /* cursor: pointer; */
 }
 
 .input-task:focus {
@@ -134,6 +133,7 @@ button div {
 .input-container input {
   flex-grow: 1;
   border: none;
+  min-width: 0;
   /* cursor: pointer; */
 }
 
@@ -150,6 +150,10 @@ button div {
   gap: 14px;
 }
 
+.priority-btn-container button {
+  font-size: 16px;
+}
+
 .btn-priority {
   height: 48px;
   width: auto;
@@ -160,7 +164,6 @@ button div {
   align-items: center;
   flex-grow: 1;
   gap: 6px;
-  font-size: 18px;
   box-shadow: 0px 0px 6px rgb(0, 0, 0, 0.1);
   border: none;
   border-radius: 8px;
@@ -439,15 +442,24 @@ button div {
 .sub-container {
   max-height: 96px;
   overflow-y: auto;
+  width: 100%;
+}
+
+.sub-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
 }
 
 .sub-item {
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   list-style-position: inside;
   border-radius: 8px;
-  padding: 8px 16px 8px 16px;
+  padding: 8px 16px;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
@@ -465,7 +477,8 @@ button div {
 .sub-item input {
   border-color: transparent;
   color: #2a3647;
-  flex-grow: 1;
+  min-width: 0;
+  width: 100%;
   cursor: pointer;
 }
 
@@ -568,11 +581,7 @@ button div {
   background-color: #d1d1d1;
 }
 
-/* .boxshadow {
-  filter: drop-shadow(0 0 4px rgb(0, 0, 0, 0.1));
-} */
-
-@media (max-width: 1200px) {
+@media (max-width: 1115px) {
   .create-task-container {
     margin: 64px 0 0 48px;
   }
@@ -582,7 +591,11 @@ button div {
   }
 
   .addTask-Container {
-    width: 316px;
+    width: 300px;
+  }
+
+  .assigned-dropdown {
+    width: 300px;
   }
 }
 
@@ -602,10 +615,6 @@ button div {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-  }
-
-  .addTask-Container {
-    width: 300px;
   }
 
   .task-controls {
@@ -644,6 +653,10 @@ button div {
   .divider-vertical {
     display: none;
   }
+
+  .assigned-dropdown {
+    width: 100%;
+  }
 }
 
 @media (max-width: 590px) {
@@ -655,10 +668,88 @@ button div {
 
 @media (max-width: 480px) {
   .tasks-form-container {
+    padding: 0 16px !important;
+  }
+
+  .addTask-Container {
+    gap: 16px;
+  }
+
+  .task-name {
+    font-size: 14px;
+  }
+
+  .priority-btn-container button {    
+    font-size: 14px;
+  }
+
+  .btn-priority {
+    height: 40px;
+  }
+
+  .urgent-priority-icon {
+    height: 14px;
+    width: 14px;
+  }
+
+  .medium-priority-icon {
+    height: 14px;
+    width: 14px;
+  }
+
+  .low-priority-icon {
+    height: 14px;
+    width: 14px;
+  }
+
+  .tasks-form-container {
     padding: 0 32px 0 32px;
   }
 
   .addTask-Container {
     padding: 0px;
+  }
+
+  .input-container {
+    font-size: 14px;
+  }
+
+  .single-user-container {
+    font-size: 14px;
+  }
+
+  input::placeholder {
+    font-size: 14px;
+  }
+
+  .sub-item input {
+    font-size: 14px;
+  }
+
+  .error-message {
+    font-size: 14px;
+    height: 14px;
+  }
+
+  .input-task {
+    font-size: 14px;
+  }
+
+  .task-controls {
+    font-size: 14px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-controls p {
+    width: 100%;
+    display: flex;
+    padding-left: 16px;
+  }
+
+  .task-control-btns {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }

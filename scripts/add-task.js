@@ -43,31 +43,64 @@ function loadTaskFormTemplate(firstTarget, secondTarget) {
   secondContainer.innerHTML += subtaskTpl();
 }
 
-function toggleAssignedDropdown() {
-  const taskContainerRef = document.getElementById("task-container");
-  const btn = document.getElementById("assaign-btn");
-  const assignedDropdown = document.getElementById("assigned-dropdown");
-  const assignedDropdownOverlay = document.getElementById("assigned-dropdown-overlay");
+function getAssigneeRefs() {
+  return {
+    taskContainer: document.getElementById("task-container"),
+    btn: document.getElementById("assaign-btn"),
+    dropdown: document.getElementById("assigned-dropdown"),
+    overlay: document.getElementById("assigned-dropdown-overlay"),
+    input: document.getElementById("assignedInputSearch"),
+  }
+}
 
+function toggleAssignedDropdown() {
+  const refs = getAssigneeRefs();
+  refs.input.disabled = false;
+  refs.input.value = "";
   loadUsers();
-  taskContainerRef.classList.toggle("zindex-12");
-  assignedDropdown.classList.toggle("d-none");
-  assignedDropdownOverlay.classList.toggle("d-none");
-  btn.classList.toggle("rotate-180deg");
+  refs.taskContainer.classList.toggle("zindex-12");
+  refs.dropdown.classList.toggle("d-none");
+  refs.overlay.classList.toggle("d-none");
+  refs.btn.classList.toggle("rotate-180deg");
+  refs.btn.classList.contains("rotate-180deg") ? filterUsers() : resetAssigneeFilter();
+}
+
+function filterUsers(input) {
+  if (!input) return;
+  const userContainers = document.querySelectorAll('[data-type="userContainer"]');
+  userContainers.forEach((container) => {
+    let userName = container.children[1].innerHTML.toLowerCase();
+    !userName.includes(input) ? container.classList.add("d-none") : container.classList.remove("d-none");
+  })
+}
+
+function resetAssigneeFilter() {
+  const refs = getAssigneeRefs();
+  const userContainers = document.querySelectorAll('[data-type="userContainer"]');
+  refs.input.disabled = true;
+  refs.input.value = "Select contacts to assign";
+  userContainers.forEach((container) => {
+    container.classList.remove("d-none");
+  })
+}
+
+function getCategoryRefs() {
+  return {
+    container: document.getElementById("category-container"),
+    dropdown: document.getElementById("category-dropdown"),
+    overlay: document.getElementById("category-dropdown-overlay"),
+    btn: document.getElementById("category-btn"),
+  };
 }
 
 function toggleCategoryDropdown() {
-  const categoryContainerRef = document.getElementById("category-container");
-  const categoryDropdown = document.getElementById("category-dropdown");
-  const btn = document.getElementById("category-btn");
-  const categoryContainer = document.getElementById("category-container");
-  const assignedDropdownOverlay = document.getElementById("category-dropdown-overlay");
+  const r = getCategoryRefs();
 
-  categoryContainerRef.classList.toggle("zindex-12");
-  categoryDropdown.classList.toggle("d-none");
-  assignedDropdownOverlay.classList.toggle("d-none");
-  btn.classList.toggle("rotate-180deg");
-  categoryContainer.classList.toggle("boxshadow");
+  r.container.classList.toggle("zindex-12");
+  r.container.classList.toggle("boxshadow");
+  r.dropdown.classList.toggle("d-none");
+  r.overlay.classList.toggle("d-none");
+  r.btn.classList.toggle("rotate-180deg");
 }
 
 function activePriority(prio) {
@@ -172,6 +205,7 @@ function initialsFromName(user) {
 
 function assignedUser(name) {
   let index = searchUserIndex(name);
+  const refs = getAssigneeRefs();
   if (users[index].assigned === false) {
     users[index].assigned = true;
     loadUsers();
@@ -183,6 +217,7 @@ function assignedUser(name) {
     loadAssignedUserIcons();
     removeUserFromArray(name);
   }
+  filterUsers(refs.input.value);
 }
 
 function searchUserIndex(name) {

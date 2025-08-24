@@ -242,7 +242,16 @@ function toggleContactBg(e) {
         contact.classList.remove("contact-dark-blue");
     });
     if (!e) return;
-    e.currentTarget.classList.add("contact-dark-blue");    
+    e.currentTarget.classList.add("contact-dark-blue");   
+}
+
+function contacMuseover(e) {
+    let target = e.currentTarget;
+    target.classList.contains("contact-dark-blue") ? target.style.backgroundColor = "" : target.style.backgroundColor = "#d1d1d1";
+}
+
+function contactMouseout(e) {
+    e.currentTarget.style.backgroundColor = "";
 }
 
 document.addEventListener("DOMContentLoaded", () => {

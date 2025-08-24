@@ -105,6 +105,10 @@
 }
 
 @media (max-width: 590px) {
+  .navbar {
+    padding: 0 32px;
+  }
+
   .navbar h2 {
     display: none;
   }
@@ -115,5 +119,11 @@
 
   .nav-imgs img {
     display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .navbar {
+    padding: 0 16px;
   }
 }

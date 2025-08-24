@@ -27,7 +27,7 @@ function subListItemEdit(task, id) {
 
 function singleUserContainer(style, initials, name = "XX", color = "red") {
   return `
-        <div class="${style}" onclick="assignedUser('${name}')">
+        <div class="${style}" data-type="userContainer" onclick="assignedUser('${name}')">
             <div class="user-icon" style="background-color: ${color};">${initials}</div>
             <span class="user-name">${name}</span>
             <button type="button" type="button" class="btn-check"></button>
@@ -101,8 +101,8 @@ function assignedTaskTpl() {
         <div class="task-container" id="task-container">
             <span class="task-name">Assigned to:</span>
             <div class="input-container">
-                <input type="text" id="assignedInputSearch" placeholder="Select contacts to assign"
-                    class="input-assaign">
+                <input type="text" id="assignedInputSearch" placeholder="Search for user" value="Select contacts to assign"
+                    class="input-assaign" oninput="filterUsers(value)" disabled>
                 <button type="button" class="btn-dropdown" id="assaign-btn" onclick="toggleAssignedDropdown()">
                     <img src="../assets/icons/arrow_drop_down.svg" alt="">
                 </button>
@@ -373,10 +373,16 @@ function responsiveEditMenu(id) {
 function createContactElement(user, id) {
     const div = document.createElement("div");
     div.classList.add("contact");
+    div.addEventListener("mouseover", (event) => {
+        contacMuseover(event);
+    })
+    div.addEventListener("mouseout", (event) => {
+        contactMouseout(event);
+    })
     div.addEventListener("click", (event) => {
         openUserInfos(id);
         toggleContactBg(event);      
-    });
+    })
     div.innerHTML = `
         <div class="avatar" style="background-color: ${user.color};">${user.avatar || user.Avatar}</div>
         <div class="info">

@@ -67,11 +67,6 @@
   transition: background-color 250ms ease;
 }
 
-.contact:hover {
-  background-color: #1f2e45;
-  color: white;
-}
-
 .contact-dark-blue {
   background-color: #1f2e45;
   color: white;
