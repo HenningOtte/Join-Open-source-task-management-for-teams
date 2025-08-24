@@ -40,13 +40,14 @@
             <div class="underline"></div>
             <form class="login-form" onsubmit="preventFromSubmit(event)">
                 <div class="input-container password-margin">
-                    <input type="email" placeholder="Email" name="email" data-field="email" oninput="activateLogin()">
+                    <input type="email" class="login-input" placeholder="Email" name="email" data-field="email"
+                        oninput="activateLogin()">
                     <img src="../assets/icons/mail.svg" alt="envelope-icon" class="signup-icon">
                 </div>
                 <div class="error-message" id="email-error"></div>
                 <div class="success-message" id="email-success"></div>
                 <div class="input-container">
-                    <input type="password" class="password-field" name="password" placeholder="Password"
+                    <input type="password" class="password-field login-input" name="password" placeholder="Password"
                         data-field="password" oninput="toggleLockIcon(event, 'firstLock', 'firstEye'); activateLogin()">
                     <img src="../assets/icons/lock.svg" alt="lock-icon" class="signup-icon" id="firstLock">
                     <img src="../assets/icons/eye-icon.svg" alt="lock-icon" class="signup-icon" style="display: none;"
@@ -61,7 +62,7 @@
             </form>
         </div>
 
-        <div class="signup-footer">
+        <div class="signup signup-footer">
             <span>Not a Join user?</span>
             <a href="./html-templates/signup.html" class="signup-btn">Sign up</a>
         </div>

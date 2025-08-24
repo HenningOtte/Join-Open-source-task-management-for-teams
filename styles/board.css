@@ -583,6 +583,10 @@ Media queries Board
     width: 100% !important;
     padding: 0 !important;
   }
+
+  .column:last-child {
+    margin-bottom: 64px;
+  }
 }
 
 @media (max-width: 590px) {

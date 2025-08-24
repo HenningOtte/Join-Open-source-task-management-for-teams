@@ -27,7 +27,7 @@
     <main class="main">
         <div class="signup-container">
             <div class="titel-container">
-                <a href="index.html">
+                <a href="../index.html">
                     <img src="../assets/icons/left-arrow-.png" alt="arrow-icon" class="arrow-icon">
                 </a>
                 <h1 class="login-title">Sign up</h1>
@@ -35,25 +35,26 @@
             <div class="underline"></div>
             <form class="login-form" type="submit" onsubmit="preventFromSubmit(event); addUser()">
                 <div class="input-container">
-                    <input type="text" placeholder="Name" name="name" data-field="name">
+                    <input type="text" class="signup-input" placeholder="Name" name="name" data-field="name">
                     <img src="../assets/icons/person.svg" alt="person-icon" class="signup-icon">
                 </div>
                 <p class="error-signup" data-field="errorName"></p>
                 <div class="input-container">
-                    <input type="email" placeholder="Email" name="email" data-field="email">
+                    <input type="email" class="signup-input" placeholder="Email" name="email" data-field="email">
                     <img src="../assets/icons/mail.svg" alt="envelope-icon" class="signup-icon">
                 </div>
                 <p class="error-signup" data-field="errorEmail"></p>
                 <div class="input-container password-margin">
-                    <input type="password" class="password-field" name="password" placeholder="Password"
+                    <input type="password" class="password-field signup-input" name="password" placeholder="Password"
                         data-field="password" oninput="toggleLockIcon(event, 'firstLock', 'firstEye')">
                     <img src="../assets/icons/lock.svg" alt="lock-icon" class="signup-icon" id="firstLock">
                     <img src="../assets/icons/eye-icon.svg" alt="lock-icon" class="signup-icon" style="display: none;"
                         id="firstEye" onclick="toggleInputType(event, 'password')">
                 </div>
                 <div class="input-container">
-                    <input type="password" class="password-field" name="confirmPassword" placeholder="Confirm Password"
-                        data-field="confirmPassword" oninput="toggleLockIcon(event, 'secondLock', 'secondEye')">
+                    <input type="password" class="password-field signup-input" name="confirmPassword"
+                        placeholder="Confirm Password" data-field="confirmPassword"
+                        oninput="toggleLockIcon(event, 'secondLock', 'secondEye')">
                     <img src="../assets/icons/lock.svg" alt="lock-icon" class="signup-icon" id="secondLock">
                     <img src="../assets/icons/eye-icon.svg" alt="lock-icon" class="signup-icon" style="display: none;"
                         id="secondEye" onclick="toggleInputType(event, 'confirmPassword')">
@@ -66,7 +67,7 @@
                     </label>
                 </div>
                 <div class="button-group">
-                    <button class="btn primary">Sign in</button>
+                    <button class="btn primary signup-btn">Sign in</button>
                 </div>
             </form>
         </div>
