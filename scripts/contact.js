@@ -237,11 +237,12 @@ function closeEditMenu() {
 
 function toggleContactBg(e) {
     const contacts = document.querySelectorAll(".contact");
+    
     contacts.forEach(contact => {
         contact.classList.remove("contact-dark-blue");
     });
     if (!e) return;
-    e.target.classList.add("contact-dark-blue");    
+    e.currentTarget.classList.add("contact-dark-blue");    
 }
 
 document.addEventListener("DOMContentLoaded", () => {
