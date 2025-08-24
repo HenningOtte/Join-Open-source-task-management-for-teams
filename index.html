@@ -2,67 +2,77 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
-  <link rel="icon" type="image/x-icon" href="../assets/icons/flavicon.png" />
-  <link rel="stylesheet" href="./styles/add-task.css">
-  <link rel="stylesheet" href="./styles/login.css">
-  <link rel="stylesheet" href="./styles/signup.css">
-  <link rel="stylesheet" href="./styles/reset.css">
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./styles/responsive.css">
-  <script src="./scripts/api.js"></script>
-  <script src="./scripts/add-task.js"></script>
-  <script src="./scripts/signup.js"></script>
-  <script src="./scripts/login.js"></script>
-  <script src="./script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icons/flavicon.png" />
+    <link rel="stylesheet" href="./styles/add-task.css">
+    <link rel="stylesheet" href="./styles/login.css">
+    <link rel="stylesheet" href="./styles/signup.css">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
+
+    <script src="./scripts/api.js"></script>
+    <script src="./scripts/add-task.js"></script>
+    <script src="./scripts/signup.js"></script>
+    <script src="./scripts/login.js"></script>
+    <script src="./script.js"></script>
 </head>
 
 <body>
-  <header class="header">
-    <div class="logo">
-      <img src="../assets/icons/join-logo.svg" alt="join-logo" class="join-logo">
-    </div>
-    <div class="signup">
-      <span>Not a Join user?</span>
-      <a href="./html-templates/signup.html" class="signup-btn">Sign up</a>
-    </div>
-  </header>
+    <div class="start-overlay"></div>
 
-  <main class="main">
-    <div class="login-container">
-      <h1 class="login-title">Log in</h1>
-      <div class="underline"></div>
-      <form class="login-form" onsubmit="preventFromSubmit(event)">
-        <div class="input-container password-margin">
-          <input type="email" placeholder="Email" name="email" data-field="email" oninput="activateLogin()">
-          <img src="../assets/icons/mail.svg" alt="envelope-icon" class="signup-icon">
+    <header class="header">
+        <div class="logo">
+            <!-- <img src="../assets/icons/join-logo.svg" alt="join-logo" class="join-logo"> -->
+            <img src="assets/icons/join-logo.svg" class="logo-animated" alt="Join Logo">
         </div>
-        <div class="error-message" id="email-error"></div>
-        <div class="success-message" id="email-success"></div>
-        <div class="input-container">
-          <input type="password" class="password-field" name="password" placeholder="Password" data-field="password"
-            oninput="toggleLockIcon(event, 'firstLock', 'firstEye'); activateLogin()">
-          <img src="../assets/icons/lock.svg" alt="lock-icon" class="signup-icon" id="firstLock">
-          <img src="../assets/icons/eye-icon.svg" alt="lock-icon" class="signup-icon" style="display: none;"
-            id="firstEye" onclick="toggleInputType(event, 'password')">
+        <div class="signup signup-header">
+            <span>Not a Join user?</span>
+            <a href="./html-templates/signup.html" class="signup-btn">Sign up</a>
         </div>
-        <p class="error-signup" data-field="errorPassword"></p>
-        <div class="button-group">
-          <button type="submit" class="btn primary" id="login-btn" onclick="handleLogin()" disabled>Log in</button>
-          <button type="button" class="btn secondary" onclick="guestLogin()">Guest Log in</button>
-        </div>
-      </form>
-    </div>
-  </main>
+    </header>
 
-  <footer>
-    <div class="Legal-texts">
-      <span class="Privacy-text">Privacy Policy</span>
-      <span class="Privacy-text">Legal notice</span>
-    </div>
-  </footer>
+    <main class="main">
+        <div class="login-container">
+            <h1 class="login-title">Log in</h1>
+            <div class="underline"></div>
+            <form class="login-form" onsubmit="preventFromSubmit(event)">
+                <div class="input-container password-margin">
+                    <input type="email" placeholder="Email" name="email" data-field="email" oninput="activateLogin()">
+                    <img src="../assets/icons/mail.svg" alt="envelope-icon" class="signup-icon">
+                </div>
+                <div class="error-message" id="email-error"></div>
+                <div class="success-message" id="email-success"></div>
+                <div class="input-container">
+                    <input type="password" class="password-field" name="password" placeholder="Password"
+                        data-field="password" oninput="toggleLockIcon(event, 'firstLock', 'firstEye'); activateLogin()">
+                    <img src="../assets/icons/lock.svg" alt="lock-icon" class="signup-icon" id="firstLock">
+                    <img src="../assets/icons/eye-icon.svg" alt="lock-icon" class="signup-icon" style="display: none;"
+                        id="firstEye" onclick="toggleInputType(event, 'password')">
+                </div>
+                <p class="error-signup" data-field="errorPassword"></p>
+                <div class="button-group">
+                    <button type="submit" class="btn primary" id="login-btn" onclick="handleLogin()" disabled>Log
+                        in</button>
+                    <button type="button" class="btn secondary" onclick="guestLogin()">Guest Log in</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="signup-footer">
+            <span>Not a Join user?</span>
+            <a href="./html-templates/signup.html" class="signup-btn">Sign up</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="Legal-texts">
+            <span class="Privacy-text">Privacy Policy</span>
+            <span class="Privacy-text">Legal notice</span>
+        </div>
+    </footer>
 </body>
 
 </html>

@@ -1,11 +1,11 @@
-.signup-body {
-  margin: 0;
-  padding: 0;
+body {
+  /* margin: 0; */
+  /* padding: 0; */
   background-color: #f4f5f7;
-  font-family: Arial, sans-serif;
-  display: flex;
+  /* font-family: Arial, sans-serif; */
+  /* display: flex; */
   flex-direction: column;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 .error-signup {
@@ -26,22 +26,22 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 32px;
+  padding: 32px 32px 0 32px;
   background-color: #f4f5f7;
 }
 
-.logo {
+/* .logo {
   display: flex;
   align-items: center;
   font-size: 32px;
   font-weight: bold;
   color: #2a3e52;
-}
+} */
 
 .join-logo-signup {
-  padding: 30px;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: auto;
+  /* padding: 30px; */
 }
 
 .titel-container {
@@ -62,8 +62,9 @@
 .main {
   flex: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
 }
 
 .signup-container {
@@ -75,6 +76,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   width: 400px;
   text-align: center;
+  margin-bottom: 84px;
 }
 
 .login-title {
@@ -109,11 +111,10 @@
   color: #aaa;
 }
 
-.envelope-icon {
+/* .envelope-icon {
   width: 20px;
   height: 20px;
-
-}
+} */
 
 .signup-icon {
   width: 17px;

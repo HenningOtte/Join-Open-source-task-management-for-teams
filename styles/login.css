@@ -1,48 +1,11 @@
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #f4f5f7;
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* Header design */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 32px;
-  background-color: #f4f5f7;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  font-size: 32px;
-  font-weight: bold;
-  color: #2a3e52;
-}
-
 .join-logo {
-  padding: 30px;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: auto;
 }
-
-.logo-text {
-  font-size: 16px;
-  margin-left: 4px;
-  align-self: flex-end;
-}
-
 .signup {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding-right: 70px;
-  padding-top: 30px;
 }
 
 .signup-btn {
@@ -57,29 +20,27 @@ body {
 }
 
 .signup-btn:hover {
-  /* outline: 2px solid #28abe2; */
   background-color: #28abe2;
 }
 
-/* ------------------- */
-
-.main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.signup-footer {
+  display: none;
 }
+
+/* Main design */
 
 .login-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  width: 512px;
+  max-width: 512px;
+  text-align: center;
   background-color: white;
-  padding: 40px 80px 40px 80px;
   border-radius: 24px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  width: 512px;
-  text-align: center;
-  justify-content: center;
+  padding: 40px 80px;
+  margin: 0 16px 84px 16px;
 }
 
 .login-title {
@@ -114,46 +75,6 @@ body {
   display: none;
 }
 
-.eye {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-}
-
-.eye-icon {
-  width: 20px;
-  height: 20px;
-}
-
-.lock,
-.eye {
-  position: absolute;
-  top: 50%;
-  right: 16px;
-  transform: translateY(-50%);
-  cursor: pointer;
-}
-
-.input-group i {
-  position: absolute;
-  right: 50px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #aaa;
-}
-
-.input-group {
-  position: relative;
-}
-
-.envelope-icon,
-.lock-icon {
-  width: 20px;
-  height: 20px;
-}
-
 .button-group {
   display: flex;
   justify-content: center;
@@ -176,48 +97,86 @@ body {
   border: 1px solid #28abe2;
 }
 
-.loading-spinner {
-  border: 2px solid #f3f3f3;
-  border-top: 2px solid #29abe2;
-  border-radius: 50%;
-  width: 16px;
-  height: 16px;
-  animation: spin 1s linear infinite;
-  display: none;
-  margin-left: 10px;
+/* Logo animation */
+
+.start-overlay {
+  position: fixed;
+
+  /* inset: 0; euqal to line 238-248 */
+  /* inset: 0; */
+
+  /* --- */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* --- */
+
+  background: white;
+  z-index: 10;
+  /* animation: overlay-fade 1.2s ease-in-out forwards; */
+  animation-name: overlay-fade;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
 }
 
-@keyframes spin {
+.logo-animated {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: auto;
+  z-index: 11;
+  /* animation: logo-animation 1.2s ease-in-out forwards; */
+  animation-name: logo-animation;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes logo-animation {
   0% {
-    transform: rotate(0deg);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 120px;
   }
-
+  /* target values */
   100% {
-    transform: rotate(360deg);
+    left: 0px;
+    top: 0px;
+    transform: none;
+    width: 60px;
+    margin-top: 32px;
+    margin-left: 32px;
   }
 }
 
-.checking-status {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
+@keyframes overlay-fade {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
-/* footer */
+/* -------------------------------------------
+Media queries
+---------------------------------------------- */
 
-.Legal-texts {
-  padding: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  color: #7073758d;
+@media (max-width: 500px) {
+  .signup-header {
+    display: none;
+  }
+  .signup-footer {
+    display: flex;
+  }
 }
-
-.Legal-texts :hover {
-  color: #28abe2;
-  font-weight: 600;
-}
-
-/* ------------------- */

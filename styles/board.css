@@ -522,10 +522,6 @@ Edit-Task
 }
 
 /* -------------------------------------------
-Media queries Task-Overlay
----------------------------------------------- */
-
-/* -------------------------------------------
 Media queries Board
 ---------------------------------------------- */
 
@@ -571,6 +567,22 @@ Media queries Board
   .empty {
     width: 100%;
   }
+
+  .task-overlay {
+    width: 100%;
+  }
+
+  .board-tasks-container {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+@media (320px <= width <= 800px) {
+  .addTask-Container {
+    width: 100% !important;
+    padding: 0 !important;
+  }
 }
 
 @media (max-width: 590px) {
@@ -610,18 +622,4 @@ Media queries Board
   .search-field {
     width: 100%;
   }
-
-  /* .task-wrapper {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-  }
-
-  .task {
-    min-width: 250px;
-  }
-
-  .empty {
-    width: 100%;
-  } */
 }
