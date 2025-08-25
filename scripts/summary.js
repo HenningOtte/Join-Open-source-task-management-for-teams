@@ -38,15 +38,32 @@ async function initSummary() {
 
 function renderGreeting() {
   const name = loadUrlParams();
-  if (name == "Guest") return
   const container = document.querySelector(".greeting")
   let greetings = document.createElement("h2");
   let nameTag = document.createElement("p");
-  greetings.innerHTML = "Good morning," 
-  nameTag.innerHTML = name;  
-  container.innerHTML = "";
-  container.appendChild(greetings);
-  container.appendChild(nameTag);
+  container.innerHTML = "";  
+  if (name == "Guest" || !name) {
+    greetings.innerHTML = getGreeting();
+    container.appendChild(greetings);
+  } else {
+    greetings.innerHTML = getGreeting() + ",";
+    nameTag.innerHTML = name;
+    container.appendChild(greetings);
+    container.appendChild(nameTag);
+  }
+}
+
+function getGreeting() {
+  const hour = new Date().getHours();
+  if (hour >= 5 && hour < 12) {
+    return "Good morning";
+  } else if (hour >= 12 && hour < 18) {
+    return "Good afternoon";
+  } else if (hour >= 18 && hour < 22) {
+    return "Good evening";
+  } else {
+    return "Hello";
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
