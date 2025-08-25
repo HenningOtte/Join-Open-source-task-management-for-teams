@@ -108,7 +108,7 @@ function assignedTaskTpl() {
                 </button>
             </div>
             <div class="dropdown">
-                <div class="assigned-dropdown d-none" id="assigned-dropdown" onclick="onclickProtection(event)"></div>
+                <div class="assigned-dropdown scrollbar-styling d-none" id="assigned-dropdown" onclick="onclickProtection(event)"></div>
             </div>
             <div class="assigned-icons-container" id="icons-container">
             </div>
