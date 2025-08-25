@@ -527,15 +527,15 @@ Media queries Board
 
 @media (max-width: 1200px) {
   .board-wrapper {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 16px;
+    margin-right: 16px;
   }
 }
 
 @media (max-width: 800px) {
   .board-wrapper {
-    margin-left: 64px;
-    margin-right: 64px;
+    margin-left: 16px;
+    margin-right: 16px;
   }
 
   .board {
@@ -594,10 +594,10 @@ Media queries Board
     display: block;
   }
 
-  .board-wrapper {
+  /* .board-wrapper {
     margin-left: 40px;
     margin-right: 40px;
-  }
+  } */
 
   .mobile-header {
     display: flex;

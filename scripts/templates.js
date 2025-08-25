@@ -322,9 +322,9 @@ function createSubtaskListItem(taskId, subtaskObj) {
 // --------------------- Contact-Overlay ---------------------------------------
 
 function renderUserInfo(id, user) {
-    const editContainer = document.querySelector(".edit-delete-container");
-    editContainer.innerHTML = responsiveEditMenu(id);
-    return `
+  const editContainer = document.querySelector(".edit-delete-container");
+  editContainer.innerHTML = responsiveEditMenu(id);
+  return `
         <div class="user-details" onclick="event.stopPropagation()">
             <div class="user-name-container">
                 <div class="avatar-circle" style="background-color: ${user.color};">${user.avatar}
@@ -354,7 +354,7 @@ function renderUserInfo(id, user) {
 }
 
 function responsiveEditMenu(id) {
-    return `
+  return `
         <button class="open-edit-delete" onclick="opencEditMenu()"></button>
         <div class="mobile-edit-delete" hidden onclick="closeEditMenu()">
             <div class="user-edit-container">
@@ -367,17 +367,17 @@ function responsiveEditMenu(id) {
                 </button>
             </div>
         </div>
-    `
+    `;
 }
 
 function createContactElement(user, id) {
-    const div = document.createElement("div");
-    div.classList.add("contact");
-    div.addEventListener("click", (event) => {
-        openUserInfos(id);
-        toggleContactBg(event);      
-    });
-    div.innerHTML = `
+  const div = document.createElement("div");
+  div.classList.add("contact");
+  div.addEventListener("click", (event) => {
+    openUserInfos(id);
+    toggleContactBg(event);
+  });
+  div.innerHTML = `
         <div class="avatar" style="background-color: ${user.color};">${user.avatar || user.Avatar}</div>
         <div class="info">
             <div class="name">${user.name}</div>
@@ -435,7 +435,7 @@ function editContactOverlay(user) {
                         <div class="buttons">
                             <button type="button" class="cancel" onclick="closeOverlay()">Cancel</button>
                             <button type="submit" class="create">Save
-                                <img src="/assets/icons/check.svg" alt="check-icon" class="check-icon" />
+                                <img src="../assets/icons/check.svg" alt="check-icon" class="check-icon" />
                             </button>
                         </div>
                     </div>
@@ -482,7 +482,7 @@ function getContactOverlayTemplate() {
                         <div class="buttons">
                             <button type="button" class="cancel" onclick="closeOverlay()">Cancel</button>
                             <button type="submit" class="create">Save
-                                <img src="/assets/icons/check.svg" alt="check-icon" class="check-icon" />
+                                <img src="../assets/icons/check.svg" alt="check-icon" class="check-icon" />
                             </button>
                         </div>
                     </div>

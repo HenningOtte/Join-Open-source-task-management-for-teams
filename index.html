@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="icon" type="image/x-icon" href="../assets/icons/flavicon.png" />
+    <link rel="icon" type="image/x-icon" href="./assets/icons/flavicon.png" />
     <link rel="stylesheet" href="./styles/add-task.css">
     <link rel="stylesheet" href="./styles/login.css">
     <link rel="stylesheet" href="./styles/signup.css">
@@ -25,7 +25,7 @@
 
     <header class="header">
         <div class="logo">
-            <!-- <img src="../assets/icons/join-logo.svg" alt="join-logo" class="join-logo"> -->
+            <!-- <img src="./assets/icons/join-logo.svg" alt="join-logo" class="join-logo"> -->
             <img src="assets/icons/join-logo.svg" class="logo-animated" alt="Join Logo">
         </div>
         <div class="signup signup-header">
@@ -42,15 +42,15 @@
                 <div class="input-container password-margin">
                     <input type="email" class="login-input" placeholder="Email" name="email" data-field="email"
                         oninput="activateLogin()">
-                    <img src="../assets/icons/mail.svg" alt="envelope-icon" class="signup-icon">
+                    <img src="./assets/icons/mail.svg" alt="envelope-icon" class="signup-icon">
                 </div>
                 <div class="error-message" id="email-error"></div>
                 <div class="success-message" id="email-success"></div>
                 <div class="input-container">
                     <input type="password" class="password-field login-input" name="password" placeholder="Password"
                         data-field="password" oninput="toggleLockIcon(event, 'firstLock', 'firstEye'); activateLogin()">
-                    <img src="../assets/icons/lock.svg" alt="lock-icon" class="signup-icon" id="firstLock">
-                    <img src="../assets/icons/eye-icon.svg" alt="lock-icon" class="signup-icon" style="display: none;"
+                    <img src="./assets/icons/lock.svg" alt="lock-icon" class="signup-icon" id="firstLock">
+                    <img src="./assets/icons/eye-icon.svg" alt="lock-icon" class="signup-icon" style="display: none;"
                         id="firstEye" onclick="toggleInputType(event, 'password')">
                 </div>
                 <p class="error-signup" data-field="errorPassword"></p>
