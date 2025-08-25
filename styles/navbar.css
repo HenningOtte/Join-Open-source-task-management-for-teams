@@ -8,13 +8,12 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  padding: 0 40px 0 40px;
+  padding: 0 64px;
 }
 
 .navbar h2 {
   font-weight: 200;
   font-size: 22px;
-  margin-left: 80px;
 }
 
 .join-logo-nav {
@@ -65,7 +64,7 @@
   flex-direction: column;
   height: 158px;
   width: 150px;
-  background-color: #2A3647;
+  background-color: #2a3647;
   border-radius: 20px 0 20px 20px;
   transform: translateX(150px);
   transition: transform 125ms ease-in;
@@ -90,11 +89,11 @@
   background-color: rgba(101, 99, 99, 0.132);
 }
 
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
   .navbar h2 {
     margin-left: 32px;
   }
-}
+} */
 
 @media (max-width: 680px) {
   #navbar {
@@ -122,7 +121,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
   .navbar {
     padding: 0 16px;
   }

@@ -49,7 +49,7 @@
                         data-field="password" oninput="toggleLockIcon(event, 'firstLock', 'firstEye')">
                     <img src="../assets/icons/lock.svg" alt="lock-icon" class="signup-icon" id="firstLock">
                     <img src="../assets/icons/eye-icon.svg" alt="lock-icon" class="signup-icon" style="display: none;"
-                        id="firstEye" onclick="toggleInputType(event, 'password')">
+                        id="firstEye" onclick="toggleInputType(event, 'password', '.')">
                 </div>
                 <div class="input-container">
                     <input type="password" class="password-field signup-input" name="confirmPassword"
@@ -57,7 +57,7 @@
                         oninput="toggleLockIcon(event, 'secondLock', 'secondEye')">
                     <img src="../assets/icons/lock.svg" alt="lock-icon" class="signup-icon" id="secondLock">
                     <img src="../assets/icons/eye-icon.svg" alt="lock-icon" class="signup-icon" style="display: none;"
-                        id="secondEye" onclick="toggleInputType(event, 'confirmPassword')">
+                        id="secondEye" onclick="toggleInputType(event, 'confirmPassword', '.')">
                 </div>
                 <p class="error-signup" data-field="errorPassword"></p>
                 <div class="checkbox-container">

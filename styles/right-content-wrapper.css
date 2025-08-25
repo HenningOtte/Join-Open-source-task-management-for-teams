@@ -11,11 +11,11 @@ body {
 #content-wrapper {
   flex: 1;
   background-color: #f6f7f8;
-  padding-top: 120px;
+  /* padding-top: 120px; */
 }
 
-.main-wrapper {
+/* .main-wrapper {
   display: flex;
   flex-direction: column;
   margin-left: 92px;
-}
+} */

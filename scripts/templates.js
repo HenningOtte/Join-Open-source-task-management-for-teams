@@ -234,45 +234,47 @@ function createTaskPlaceholderDone() {
 
 function createDetailedTaskTemplate(taskId, task) {
   return `
-    <div id="overlay-wrapper" class="overlay-wrapper overlay-content transit" onclick="onclickProtection(event)">
-        <div class="overlay-header mb-20">
-            <span class="tag-overlay ${createCategoryClass(task.category)}">${task.category}</span>
-            <button class="btn-transparent" onclick="closeOverlay()">
-                <img src="../assets/icons/close.svg" alt="Close">
-            </button>
-        </div>
-
-        <h1 class="mb-20">${task.title}</h1>
-        <p class="mb-20">${task.description}</p>
-
-        <div class="flex mb-20">
-            <div>
-                <div class="section-title mb-20">Due date:</div>
-                <div class="section-title">Priority:</div>
+    <div class="overlay-outer overlay-wrapper transit">
+        <div class="overlay-content " onclick="onclickProtection(event)">
+            <div class="overlay-header mb-20">
+                <span class="tag-overlay ${createCategoryClass(task.category)}">${task.category}</span>
+                <button class="btn-transparent" onclick="closeOverlay()">
+                    <img src="../assets/icons/close.svg" alt="Close">
+                </button>
             </div>
-            <div>
-                <div class="mb-20">${task.date}</div>
-                <div class="overlay-prio">
-                    <span class="capitalize">${task.priority}</span>
-                    <img src="../assets/icons/prio-${task.priority}.svg" alt="Prio ${task.priority}">
+
+            <h1 class="mb-20">${task.title}</h1>
+            <p class="mb-20">${task.description}</p>
+
+            <div class="flex mb-20">
+                <div>
+                    <div class="section-title mb-20">Due date:</div>
+                    <div class="section-title">Priority:</div>
+                </div>
+                <div>
+                    <div class="mb-20">${task.date}</div>
+                    <div class="overlay-prio">
+                        <span class="capitalize">${task.priority}</span>
+                        <img src="../assets/icons/prio-${task.priority}.svg" alt="Prio ${task.priority}">
+                    </div>
                 </div>
             </div>
-        </div>
 
-        ${checkForAssignmentDetailView(task.assigned)}
+            ${checkForAssignmentDetailView(task.assigned)}
 
-        ${checkForSubtasksDetailView(taskId, task.subtask)}
+            ${checkForSubtasksDetailView(taskId, task.subtask)}
 
-        <div class="overlay-footer">
-            <button class="overlay-delete btn-transparent" onclick="deleteTask('tasks/${taskId}')">
-                <img src="../assets/icons/delete.svg" alt="Delete">
-                <span>Delete</span>
-            </button>
-            <span class="overlay-devider"></span>
-            <button class="overlay-edit btn-transparent" onclick="editTask('${taskId}')">
-                <img src="../assets/icons/edit.svg" alt="Edit">
-                <span>Edit</span>
-            </button>
+            <div class="overlay-footer">
+                <button class="overlay-delete btn-transparent" onclick="deleteTask('tasks/${taskId}')">
+                    <img src="../assets/icons/delete.svg" alt="Delete">
+                    <span>Delete</span>
+                </button>
+                <span class="overlay-devider"></span>
+                <button class="overlay-edit btn-transparent" onclick="editTask('${taskId}')">
+                    <img src="../assets/icons/edit.svg" alt="Edit">
+                    <span>Edit</span>
+                </button>
+            </div>
         </div>
     </div>
   `;

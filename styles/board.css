@@ -4,8 +4,7 @@ Board header
 
 .board-wrapper {
   max-width: 1440px;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin: 64px 64px 32px 64px;
 }
 
 .board-header {
@@ -177,7 +176,7 @@ Board
 }
 
 .subtask {
-  font-size: 0.75rem;
+  font-size: 12px;
 }
 
 .task-footer {
@@ -234,6 +233,7 @@ Overlay
   display: flex;
   justify-content: center;
   align-items: center;
+
   /* fade-in / fade-out effect  */
   opacity: 0;
   transition: opacity 250ms ease;
@@ -247,32 +247,30 @@ Overlay
   background: transparent !important;
 }
 
-.user-overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 11;
-  transition: opacity 250ms ease;
-}
-
 .overlay-wrapper {
   position: absolute;
   top: 50%;
   left: 50%;
   border-radius: 30px;
+
   /* translate(-50%, -50%) is for centering the overlay-wrapper in the correct position */
   transform: translate(-50%, -50%);
   transition: all 250ms ease-in-out;
+}
+
+.overlay-outer {
+  width: 100%;
+  padding: 0 16px;
 }
 
 .overlay-content {
   max-width: 420px;
   width: 100%;
   height: auto;
+  border-radius: 30px;
   background-color: #fff;
   padding: 48px 40px;
+  margin: 0 auto;
 }
 
 .transit {
@@ -533,11 +531,6 @@ Media queries Board
 }
 
 @media (max-width: 800px) {
-  .board-wrapper {
-    margin-left: 16px;
-    margin-right: 16px;
-  }
-
   .board {
     display: block;
   }
@@ -578,26 +571,10 @@ Media queries Board
   }
 }
 
-@media (320px <= width <= 800px) {
-  .addTask-Container {
-    width: 100% !important;
-    padding: 0 !important;
-  }
-
-  .column:last-child {
-    margin-bottom: 64px;
-  }
-}
-
 @media (max-width: 590px) {
   .board-header {
     display: block;
   }
-
-  /* .board-wrapper {
-    margin-left: 40px;
-    margin-right: 40px;
-  } */
 
   .mobile-header {
     display: flex;
@@ -625,5 +602,64 @@ Media queries Board
 
   .search-field {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .board-header {
+    display: block;
+  }
+
+  .mobile-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .add-btn-mobile {
+    padding: 10px;
+  }
+
+  .search-field::placeholder {
+    font-size: 14px;
+  }
+
+  .board h3 {
+    font-size: 17px;
+  }
+
+  .empty {
+    font-size: 14px;
+  }
+
+  .overlay-content {
+    font-size: 14px;
+    /* margin: 0 16px; */
+  }
+
+  .tag {
+    font-size: 10px;
+  }
+
+  .task h4,
+  p {
+    font-size: 14px;
+  }
+
+  .progress {
+    height: 5px;
+  }
+
+  .subtask {
+    font-size: 10px;
+  }
+}
+
+@media (320px <= width <= 800px) {
+  .addTask-Container {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .column:last-child {
+    margin-bottom: 64px;
   }
 }

@@ -136,11 +136,11 @@ function toggleLockIcon(e, lockId, eyeId) {
   }
 }
 
-function toggleInputType(e, data) {
+function toggleInputType(e, data, path = "") {
   const input = document.querySelector(`[data-field="${data}"]`);
   const isPassword = input.type === "password";
   input.type = isPassword ? "text" : "password";
-  e.target.src = isPassword ? "../assets/icons/eye-slash.svg" : "../assets/icons/eye-icon.svg";
+  e.target.src = isPassword ? `${path}./assets/icons/eye-slash.svg` : `${path}./assets/icons/eye-icon.svg`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
