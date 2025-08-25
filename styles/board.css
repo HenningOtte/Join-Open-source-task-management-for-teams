@@ -531,6 +531,11 @@ Media queries Board
 }
 
 @media (max-width: 800px) {
+  .board-wrapper {
+    margin-left: 64px;
+    margin-right: 64px;
+  }
+
   .board {
     display: block;
   }
@@ -572,6 +577,11 @@ Media queries Board
 }
 
 @media (max-width: 590px) {
+  .board-wrapper {
+    margin-left: 32px;
+    margin-right: 32px;
+  }
+
   .board-header {
     display: block;
   }
@@ -606,6 +616,11 @@ Media queries Board
 }
 
 @media (max-width: 480px) {
+  .board-wrapper {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
   .board-header {
     display: block;
   }
