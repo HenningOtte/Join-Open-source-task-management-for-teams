@@ -6,6 +6,19 @@ main {
     background-color: #f6f7f8;
 }
 
+.page-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.blue-arrow {
+    height: 24px;
+    width: 24px;
+    background-image: url(/assets/icons/arrow_blue.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .privacy-container {
     flex-grow: 1;
     display: flex;
@@ -14,7 +27,7 @@ main {
 }
 
 .privacy-section {
-    overflow-y: scroll;
+    overflow-y: auto;
     box-sizing: border-box;
     padding: 64px 64px 64px 120px;
 }
@@ -24,7 +37,7 @@ main {
 }
 
 .spacer-bottom {
-    margin-bottom: 40px;
+    margin-bottom: 32px;
 }
 
 .privacy-section li {
@@ -40,8 +53,44 @@ main {
     flex-direction: row;
 }
 
+.info-section {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 16px;
+}
+
+.info-number {
+    width: 48px;
+    flex-shrink: 0;
+    margin: 0 !important;
+}
+
+.help-subline {
+    margin-bottom: 16px;
+}
+
+.help-headline {
+    margin-bottom: 4px;
+}
+
 #right-content-wrapper {
-    height: 100vh; /* Gleiche Höhe wie die Sidebar */
-    overflow-y: auto; /* Ermöglicht vertikales Scrollen */
-    overflow-x: hidden; /* Verhindert horizontales Scrollen */
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.join-link {
+    color: #29ABE2;
+}
+
+@media (max-width: 992px) {
+    .privacy-section {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 400px) {
+    .privacy-section {
+        padding: 32px;
+    }
 }
