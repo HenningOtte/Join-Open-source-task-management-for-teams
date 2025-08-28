@@ -281,26 +281,6 @@ Overlay
   display: none;
 }
 
-/* 
-Die allgemeine Regel ".overlay button" setzt alle Buttons innerhalb des Overlays auf einen neutralen, transparenten Stil zurück. 
-Das führt jedoch dazu, dass speziell gestylte Buttons (z. B. mit Hintergrundfarbe) ihr gewünschtes Aussehen verlieren.
-
-Daher wurde eine separate Klasse "btn-transparent" erstellt, 
-um gezielt nur Buttons transparent zu stylen, ohne andere globale Button-Styles zu beeinflussen.
-*/
-
-/* .overlay button {
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  margin: 0;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-  outline: none;
-  box-shadow: none;
-} */
-
 .btn-transparent {
   background-color: transparent;
   border: none;
@@ -506,8 +486,8 @@ Edit-Task
 
 .editTask-container {
   overflow-y: auto;
-  width: 396px;
-  max-height: 664px;
+  margin-bottom: 16px;
+  max-height: 496px;
   padding-right: 8px;
   display: flex;
   flex-direction: column;

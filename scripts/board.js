@@ -235,10 +235,10 @@ async function editTask(taskId) {
 }
 
 function prepareOverlay(taskId) {
-  const overlayWrapper = document.getElementById("overlay-wrapper");
-  overlayWrapper.innerHTML = "";
-  overlayWrapper.innerHTML += editTaskTpl();
-  overlayWrapper.innerHTML += okBtn(taskId);
+  const overlayContent = document.querySelector(".overlay-content");
+  overlayContent.innerHTML = "";
+  overlayContent.innerHTML += editTaskTpl();
+  overlayContent.innerHTML += okBtn(taskId);
 }
 
 function resetTaskData() {
