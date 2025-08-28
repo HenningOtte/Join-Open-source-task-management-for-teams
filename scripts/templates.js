@@ -183,23 +183,40 @@ function okBtn(taskId) {
 
 function createTaskTemplate(id, task) {
   return `
-    <div class="task draggable" data-id="${id}" id="${id}" draggable="true" 
-     ondragstart="dragstartHandler(event, '${id}')" 
-     ondragend="dragendHandler(event)" 
-     onclick="renderSelectedTask('${id}')">
-        <span class="tag ${createCategoryClass(task.category)}">${task.category}</span>
-        <h4>${task.title}</h4>
-        <p class="task-descr">${task.description}</p>
-        ${checkForSubtask(task.subtask)}
-        <div class="task-footer">
-            <div>
-              ${checkForAssignment(task.assigned)}
-            </div>
-            <img src="../assets/icons/prio-${task.priority}.svg" alt="Prio ${task.priority}">
-        </div>
-    </div>
-  `;
+      <div class="task draggable" data-id="${id}" id="${id}" draggable="true" onclick="renderSelectedTask('${id}')">
+          <span class="tag ${createCategoryClass(task.category)}">${task.category}</span>
+          <h4>${task.title}</h4>
+          <p class="task-descr">${task.description}</p>
+          ${checkForSubtask(task.subtask)}
+          <div class="task-footer">
+              <div>
+                ${checkForAssignment(task.assigned)}
+              </div>
+              <img src="../assets/icons/prio-${task.priority}.svg" alt="Prio ${task.priority}">
+          </div>
+      </div>
+    `;
 }
+
+// function createTaskTemplate(id, task) {
+//   return `
+//     <div class="task draggable" data-id="${id}" id="${id}" draggable="true"
+//      ondragstart="dragstartHandler(event, '${id}')"
+//      ondragend="dragendHandler(event)"
+//      onclick="renderSelectedTask('${id}')">
+//         <span class="tag ${createCategoryClass(task.category)}">${task.category}</span>
+//         <h4>${task.title}</h4>
+//         <p class="task-descr">${task.description}</p>
+//         ${checkForSubtask(task.subtask)}
+//         <div class="task-footer">
+//             <div>
+//               ${checkForAssignment(task.assigned)}
+//             </div>
+//             <img src="../assets/icons/prio-${task.priority}.svg" alt="Prio ${task.priority}">
+//         </div>
+//     </div>
+//   `;
+// }
 
 function createProgressWrapper(subtasks, numerus, subtaskDone) {
   return `
