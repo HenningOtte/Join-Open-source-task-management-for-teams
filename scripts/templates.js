@@ -415,12 +415,23 @@ function createContactElement(user, id) {
 function navLink(icon, link, section) {
   return `
         <li class="nav-link">
-            <div class="img-wrapper">
+            <a href="${link}">
                 <img src="../assets/icons/${icon}.svg" alt="">
-            </div>
-            <a href="${link}" data-task="navLink">${section}</a>
+                ${section}
+            </a>
         </li>
     `;
+}
+
+function sidebarLinkTemplate() {
+    return `
+        <li class="nav-link">
+            <a href="../index.html">
+                <img src="../assets/icons/summary.svg" alt="summary">
+                Summary
+            </a>
+        </li>
+    `
 }
 
 function editContactOverlay(user) {

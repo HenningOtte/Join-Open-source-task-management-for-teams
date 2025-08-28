@@ -37,7 +37,7 @@ async function initSummary() {
 }
 
 function renderGreeting() {
-  const name = loadUrlParams();
+  const name = new URLSearchParams(window.location.search).get("User");  
   const container = document.querySelector(".greeting")
   let greetings = document.createElement("h2");
   let nameTag = document.createElement("p");

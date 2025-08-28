@@ -75,7 +75,11 @@ function openLogin() {
 }
 
 function openPrivacy() {
-  window.location.href = "../html-templates/privacy-policy.html?msg=privacy";
+  const params = new URLSearchParams({
+    User: "privacy",
+    Status: "to-do",
+  });
+  window.location.href = `../html-templates/privacy-policy.html?${params}`;
 }
 
 function checkName(userName) {

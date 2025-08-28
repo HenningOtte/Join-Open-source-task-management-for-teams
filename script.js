@@ -86,15 +86,20 @@ function closeAddTask() {
 
 async function renderUserIcon() {
   const element = document.querySelector(".profile-picture");
-  let name = loadUrlParams();
-  if (!name) name = "Guest";
-  element.innerHTML = createAvater(name);
+  let params = new URLSearchParams(window.location.search);
+  element.innerHTML = createAvater(params.get("User"));
 }
 
-function loadUrlParams() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const msg = urlParams.get("msg");
-  return msg;
+function checkUrlParams() {
+  let params = new URLSearchParams(window.location.search);
+  const newParams = new URLSearchParams({
+    User: "Guest",
+    Status: "to-do",
+  });
+  if (params.size == 0) {
+    let url = window.location.href;
+    window.location.href = `${url}?${newParams}`;
+  } else return
 }
 
 function createAvater(name) {
@@ -107,18 +112,17 @@ function createAvater(name) {
 }
 
 function updateLinksWithUserKey(target) {
-  let name = loadUrlParams();
-  if (!name) name = "Guest";
+  const urlParams = new URLSearchParams(window.location.search);
   const links = document.querySelectorAll(`[data-task="${target}"]`);
   links.forEach((element) => {
-    let newLink = element.href + `?msg=${encodeURIComponent(name)}`;
+    let newLink = element.href + `?${encodeURI(urlParams)}`;
     element.href = newLink;
   });
 }
 
 function isPrivacyMessage() {
-  let msg = loadUrlParams();
-  if (msg === "privacy") adjustLayoutForPrivacyView();
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get("User") === "privacy") adjustLayoutForPrivacyView();
 }
 
 function adjustLayoutForPrivacyView() {
@@ -130,14 +134,10 @@ function adjustLayoutForPrivacyView() {
 }
 
 function initializeNavbar() {
+  checkUrlParams();
   renderUserIcon();
   updateLinksWithUserKey("navLink");
 }
-
-// function toggleMenu() {
-//   const menu = document.getElementById("menu");
-//   menu.classList.toggle("menu-translateX");
-// }
 
 function toggleMenu() {
   const container = document.querySelector(".menu-container");
@@ -154,18 +154,3 @@ function toggleMenu() {
     }, 150);
   }
 }
-
-// Animation for mobile view
-
-// window.addEventListener("load", () => {
-//   const intro = document.getElementById("intro");
-//   const main = document.getElementById("main");
-
-//   intro.style.animation = "fadeOut 3s ease forwards";
-//   intro.style.animationDelay = "2s";
-  
-//   setTimeout(() => {
-//     intro.style.display = "none";
-//     main.classList.add("show");
-//   }, 3000);
-// });
