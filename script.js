@@ -134,9 +134,25 @@ function initializeNavbar() {
   updateLinksWithUserKey("navLink");
 }
 
+// function toggleMenu() {
+//   const menu = document.getElementById("menu");
+//   menu.classList.toggle("menu-translateX");
+// }
+
 function toggleMenu() {
+  const container = document.querySelector(".menu-container");
   const menu = document.getElementById("menu");
-  menu.classList.toggle("menu-translateX");
+  if (container.classList.contains("d-none")) {
+    container.classList.remove("d-none");
+    setTimeout(() => {
+      menu.classList.toggle("menu-translateX");
+    }, 50);
+  } else {
+    menu.classList.toggle("menu-translateX");
+    setTimeout(() => {
+      container.classList.add("d-none");
+    }, 150);
+  }
 }
 
 // Animation for mobile view
