@@ -102,6 +102,16 @@ function checkUrlParams() {
   } else return
 }
 
+function goToAddTaskPage(status) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const userName = urlParams.get("User");
+  const params = new URLSearchParams({
+    User: userName,
+    Status: status,
+  });
+  window.location.href = `../html-templates/add-task.html?${params}`; 
+}
+
 function createAvater(name) {
   let myArr = name.split(" ");
   let avatar = "";

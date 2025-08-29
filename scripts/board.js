@@ -5,13 +5,13 @@ function renderBoard(tasks) {
   if (tasks) {
     let categories = {};
     // Group tasks in categories to use forEach loop
-    let entries = Object.entries(tasks);   
+    let entries = Object.entries(tasks);
 
     entries.forEach((task) => {
-      if (!categories[task[1].status]) categories[task[1].status] = [];      
-      categories[task[1].status].push(task);      
-    });   
-    
+      if (!categories[task[1].status]) categories[task[1].status] = [];
+      categories[task[1].status].push(task);
+    });
+
     // console.log(categories);
 
     for (let status in categories) {
@@ -169,7 +169,7 @@ async function checkInOutSubtask(taskId, subtaskId) {
   let subtaskProgress = selectedTask.querySelector(".progress-wrapper");
   subtaskRef.classList.toggle("checked");
 
-  if (subtask) {    
+  if (subtask) {
     subtask.checked = !subtask.checked;
     await putData("tasks/" + taskId, taskObj);
 
@@ -232,8 +232,6 @@ async function editTask(taskId) {
   importEditElements(task);
   activePriority(task.priority);
   changeCategorie(task);
-  console.log(task.subtask);
-  
   loadSubTasks(task.subtask);
   renderAssignedUsers(task);
 }
@@ -523,4 +521,20 @@ async function initBoard() {
 
 document.addEventListener("DOMContentLoaded", () => {
   initBoard();
+  closeAddTaskMobile();
 });
+
+function closeAddTaskMobile() {
+  window.addEventListener("resize", () => {
+    if (window.innerWidth <= 590) {
+      let addTaskBoard = document.getElementById("add-task-board");
+      if (!addTaskBoard.classList.contains("d-none")) {
+        const addTask = document.getElementById("add-task-board");
+        const container = document.getElementById("task-overlay");
+        addTask.classList.toggle("transparent-background");
+        container.classList.toggle("transit");
+        addTask.classList.toggle("d-none");
+      };
+    }
+  })
+}

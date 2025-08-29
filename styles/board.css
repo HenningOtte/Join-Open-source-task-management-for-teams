@@ -82,6 +82,10 @@ Board header
   cursor: pointer;
 }
 
+.add-btn:hover {
+  background-color: #4589ff;
+}
+
 .add-icon {
   width: 16px;
   height: 16px;
@@ -130,10 +134,11 @@ Board
   margin-bottom: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  transition: box-shadow ease 250ms;
 }
 
 .task:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1), inset 0 0 0 2px #3b82f6;
 }
 
 .tag {
@@ -394,6 +399,10 @@ Overlay
   color: #2a3647;
 }
 
+.repo-task-btn {
+  display: none;
+}
+
 /* -------------------------------------------
 Overlay - Detailed Task view 
 ---------------------------------------------- */
@@ -550,13 +559,34 @@ Media queries Board
     width: 100%;
   }
 
-  .task-overlay {
+  /* .task-overlay {
     width: 100%;
-  }
+  } */
 
   .board-tasks-container {
     flex-direction: column;
+    width: 360px;
+    max-height: 496px;
+    overflow-y: auto;
+    padding-right: 8px;
+    gap: 16px;
+  }
+
+  .divider-vertical {
+    display: none;
+  }
+
+  .task-controls {
+    margin-top: 16px;
+    flex-direction: column;
+    gap: 16px;
+    align-items: baseline;
+  }
+
+  .task-control-btns {
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -596,6 +626,18 @@ Media queries Board
 
   .search-field {
     width: 100%;
+  }
+
+  .add-btn-desktop {
+    display: none;
+  }
+
+  .column-header img:first-of-type {
+    display: none;
+  }
+
+  .repo-task-btn {
+    display: block;
   }
 }
 
@@ -652,7 +694,7 @@ Media queries Board
   }
 }
 
-@media (320px <= width <= 800px) {
+@media (320px <=width <=800px) {
   .addTask-Container {
     width: 100% !important;
     padding: 0 !important;
