@@ -329,7 +329,7 @@ function createSubtaskTemplate(taskId, subtaskArr) {
 }
 
 function createSubtaskListItem(taskId, subtaskObj) {
-  const checkedClass = subtaskObj.edit ? " checked" : "";
+  const checkedClass = subtaskObj.checked ? " checked" : "";
   return `
     <li class="subtask-item mb-14" data-id="${subtaskObj.id}">
       <button class="btn-subtask btn-transparent ${checkedClass}" data-id="${subtaskObj.id}" onclick="checkInOutSubtask('${taskId}', '${subtaskObj.id}')"></button>

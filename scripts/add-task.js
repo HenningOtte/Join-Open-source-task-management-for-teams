@@ -3,10 +3,11 @@ let users = [];
 let selectedPriority = "medium";
 let assignedUserArr = [];
 let taskStatus = "to-do";
+let order = 1000;
 
 async function initAddTaskPage() {
   await loadUsersTask();
-  loadUrlStatus();  
+  loadUrlStatus();
   loadTaskFormTemplate("firstTaskContainer", "secondTaskContainer");
   activePriority("medium");
 }
@@ -23,6 +24,7 @@ function createSubObj(id, value) {
     id: id,
     value: value,
     edit: false,
+    checked: false 
   };
 }
 
@@ -344,7 +346,7 @@ function taskObjTemplate(
     category: document.getElementById("select-category").innerHTML,
     subtask: subtask,
     status: status,
-    order: 1000,
+    order: order,
   };
 }
 

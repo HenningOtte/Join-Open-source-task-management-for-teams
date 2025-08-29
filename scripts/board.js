@@ -5,12 +5,14 @@ function renderBoard(tasks) {
   if (tasks) {
     let categories = {};
     // Group tasks in categories to use forEach loop
-    let entries = Object.entries(tasks);
+    let entries = Object.entries(tasks);   
 
     entries.forEach((task) => {
-      if (!categories[task[1].status]) categories[task[1].status] = [];
-      categories[task[1].status].push(task);
-    });
+      if (!categories[task[1].status]) categories[task[1].status] = [];      
+      categories[task[1].status].push(task);      
+    });   
+    
+    // console.log(categories);
 
     for (let status in categories) {
       let column = document.querySelector(`.column[data-task="${status}"]`);
@@ -75,7 +77,7 @@ function checkForSubtask(subtasks) {
   if (subtasks) {
     let progressHTML = "";
     const numerus = subtasks.length === 1 ? "Subtask" : "Subtasks";
-    const subtaskDone = subtasks.filter((subtask) => subtask.edit);
+    const subtaskDone = subtasks.filter((subtask) => subtask.checked);
     progressHTML += createProgressWrapper(subtasks, numerus, subtaskDone);
     return progressHTML;
   } else {
@@ -167,13 +169,13 @@ async function checkInOutSubtask(taskId, subtaskId) {
   let subtaskProgress = selectedTask.querySelector(".progress-wrapper");
   subtaskRef.classList.toggle("checked");
 
-  if (subtask) {
-    subtask.edit = !subtask.edit;
+  if (subtask) {    
+    subtask.checked = !subtask.checked;
     await putData("tasks/" + taskId, taskObj);
 
     if (subtaskProgress) {
       const numerus = taskObj.subtask.length === 1 ? "Subtask" : "Subtasks";
-      const subtaskDone = taskObj.subtask.filter((st) => st.edit);
+      const subtaskDone = taskObj.subtask.filter((st) => st.checked);
       subtaskProgress.innerHTML = progessTemplate(taskObj.subtask, numerus, subtaskDone);
     }
   }
@@ -230,6 +232,8 @@ async function editTask(taskId) {
   importEditElements(task);
   activePriority(task.priority);
   changeCategorie(task);
+  console.log(task.subtask);
+  
   loadSubTasks(task.subtask);
   renderAssignedUsers(task);
 }
@@ -257,6 +261,7 @@ function importEditElements(task) {
   editTaskContainer.innerHTML += categoryTaskTpl();
   editTaskContainer.innerHTML += subtaskTpl();
   taskStatus = task.status;
+  order = task.order;
 }
 
 function changeCategorie(task) {
