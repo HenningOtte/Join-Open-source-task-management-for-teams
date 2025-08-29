@@ -292,7 +292,15 @@ async function createTaskForm() {
 function runInitIfValid() {
   let validateTask = isTaskDataValid();
   if (!validateTask) return;
+  updateStatusToTodo();
   initAddTaskPage();
+}
+
+function updateStatusToTodo() {
+  taskStatus = "to-do";
+  const url = new URL(window.location.href);
+  url.searchParams.set("Status", "to-do");
+  window.history.replaceState({}, "", url);
 }
 
 function isTaskDataValid() {
