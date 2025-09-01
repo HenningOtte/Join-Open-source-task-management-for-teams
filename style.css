@@ -1,47 +1,47 @@
 .d-none {
-    display: none !important;
+  display: none !important;
 }
 
 main {
-    background-color: #f6f7f8;
+  background-color: #f6f7f8;
 }
 
 .privacy-container {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .privacy-section {
-    overflow-y: scroll;
-    box-sizing: border-box;
-    padding: 64px 64px 64px 120px;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  padding: 64px 64px 64px 120px;
 }
 
 .privacy-section h2 {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 .spacer-bottom {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .privacy-section li {
-    list-style: inside;
+  list-style: inside;
 }
 
 .privacy-subline {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 .main-flexbox {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 #right-content-wrapper {
-    height: 100vh; /* Gleiche Höhe wie die Sidebar */
-    overflow-y: auto; /* Ermöglicht vertikales Scrollen */
-    overflow-x: hidden; /* Verhindert horizontales Scrollen */
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }

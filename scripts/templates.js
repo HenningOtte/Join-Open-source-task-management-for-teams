@@ -183,7 +183,7 @@ function okBtn(taskId) {
 
 function createTaskTemplate(id, task) {
   return `
-      <div class="task draggable" data-id="${id}" id="${id}" draggable="true" onclick="renderSelectedTask('${id}')">
+      <div class="dragging-task task draggable" data-id="${id}" id="${id}" draggable="true" onclick="renderSelectedTask('${id}')">
           <span class="tag ${createCategoryClass(task.category)}">${task.category}</span>
           <h4>${task.title}</h4>
           <p class="task-descr">${task.description}</p>
@@ -197,26 +197,6 @@ function createTaskTemplate(id, task) {
       </div>
     `;
 }
-
-// function createTaskTemplate(id, task) {
-//   return `
-//     <div class="task draggable" data-id="${id}" id="${id}" draggable="true"
-//      ondragstart="dragstartHandler(event, '${id}')"
-//      ondragend="dragendHandler(event)"
-//      onclick="renderSelectedTask('${id}')">
-//         <span class="tag ${createCategoryClass(task.category)}">${task.category}</span>
-//         <h4>${task.title}</h4>
-//         <p class="task-descr">${task.description}</p>
-//         ${checkForSubtask(task.subtask)}
-//         <div class="task-footer">
-//             <div>
-//               ${checkForAssignment(task.assigned)}
-//             </div>
-//             <img src="../assets/icons/prio-${task.priority}.svg" alt="Prio ${task.priority}">
-//         </div>
-//     </div>
-//   `;
-// }
 
 function createProgressWrapper(subtasks, numerus, subtaskDone) {
   return `
@@ -252,7 +232,7 @@ function createTaskPlaceholderDone() {
 function createDetailedTaskTemplate(taskId, task) {
   return `
     <div class="overlay-outer overlay-wrapper transit">
-        <div class="overlay-content " onclick="onclickProtection(event)">
+        <div class="overlay-content" onclick="onclickProtection(event)">
             <div class="overlay-header mb-20">
                 <span class="tag-overlay ${createCategoryClass(task.category)}">${task.category}</span>
                 <button class="btn-transparent" onclick="closeOverlay()">
@@ -426,8 +406,8 @@ function navLink(icon, link, section) {
 function editContactOverlay(user) {
   const overlay = document.getElementById("overlay");
   overlay.innerHTML = `
-    <div id="overlay-wrapper" class="overlay-wrapper transit" onclick="onclickProtection(event)">
-        <div class="modal"> 
+    <div class="overlay-outer overlay-wrapper transit">
+        <div class="modal overlay-content-contact" onclick="onclickProtection(event)"> 
             <div class="modal-left">
                 <div class="modal-left-close">
                     <button onclick="closeOverlay()" class="close-task-white"></button>
@@ -443,17 +423,17 @@ function editContactOverlay(user) {
                         <div class="avatar-circle" id="avatar-edit" style="background-color: #9327FF;">AM</div>
                     </div>
                     <div class="contact-form">
-                        <div class="input-group">
+                        <div class="input-group-contact">
                             <input type="text" id="contact-name" placeholder="Name" value="${user.name}" required >
                             <img class="person-icon" src="../assets/icons/person.svg">
                         </div>
                         <p class="error-signup" data-field="errorName"></p>
-                        <div class="input-group">
+                        <div class="input-group-contact">
                             <input type="email" id="contact-email" placeholder="Email" value="${user.email}" required >
                             <img class="email-icon" src="../assets/icons/mail.svg">
                         </div>
                         <p class="error-signup" data-field="errorEmail"></p>
-                        <div class="input-group">
+                        <div class="input-group-contact">
                             <input type="tel" id="contact-phone" placeholder="Phone" value="${user.phone}" required >
                             <img class="phone-icon" src="../assets/icons/call.svg">
                         </div>
@@ -473,10 +453,10 @@ function editContactOverlay(user) {
 
 function getContactOverlayTemplate() {
   return `
-    <div id="overlay-wrapper" class="overlay-wrapper transit" onclick="onclickProtection(event)">
-        <div class="modal"> 
+    <div class="overlay-outer overlay-wrapper transit">
+        <div class="modal overlay-content-contact" onclick="onclickProtection(event)"> 
             <div class="modal-left">
-                 <div class="modal-left-close">
+                <div class="modal-left-close">
                     <button onclick="closeOverlay()" class="close-task-white"></button>
                 </div>
                 <img class="contact-logo" src="../assets/icons/join-dark.svg" alt="join-logo">
@@ -490,17 +470,17 @@ function getContactOverlayTemplate() {
                         <img src="../assets/icons/Group 13.svg">
                     </div>
                     <div class="contact-form">
-                        <div class="input-group">
+                        <div class="input-group-contact">
                             <input type="text" id="contact-name" placeholder="Name" required />
                             <img class="person-icon" src="../assets/icons/person.svg">
                         </div>
                         <p class="error-signup" data-field="errorName"></p>
-                        <div class="input-group">
+                        <div class="input-group-contact">
                             <input type="email" id="contact-email" placeholder="Email" required />
                             <img class="email-icon" src="../assets/icons/mail.svg">
                         </div>
                         <p class="error-signup" data-field="errorEmail"></p>
-                        <div class="input-group">
+                        <div class="input-group-contact">
                             <input type="tel" id="contact-phone" placeholder="Phone" required />
                             <img class="phone-icon" src="../assets/icons/call.svg">
                         </div>

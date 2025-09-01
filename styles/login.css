@@ -8,21 +8,6 @@
   gap: 24px;
 }
 
-/* .signup-btn {
-  background-color: #2a3e52;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 15px 24px;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-} */
-
-/* .signup-btn:hover {
-  background-color: #28abe2;
-} */
-
 .signup-footer {
   display: none;
 }
@@ -48,15 +33,6 @@
   font-weight: bold;
   margin-bottom: 8px;
 }
-
-/* .underline {
-  width: 80px;
-  height: 3px;
-  background-color: #29abe2;
-  margin: 0 auto 32px;
-  border-radius: 2px;
-} */
-
 .error-message {
   color: #e74c3c;
   font-size: 14px;
@@ -102,11 +78,6 @@
 
 .start-overlay {
   position: fixed;
-
-  /* inset: 0; euqal to line 238-248 */
-  /* inset: 0; */
-
-  /* --- */
   position: fixed;
   top: 0;
   right: 0;
@@ -118,8 +89,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* --- */
-
   background: white;
   z-index: 10;
   /* animation: overlay-fade 1.2s ease-in-out forwards; */
@@ -151,7 +120,6 @@
     transform: translate(-50%, -50%) scale(1);
     width: 120px;
   }
-  /* target values */
   100% {
     left: 0px;
     top: 0px;

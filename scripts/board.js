@@ -30,13 +30,6 @@ function renderBoard(tasks) {
   addPlaceholdersToEmptyColumns();
 }
 
-// function removeTasks() {
-//   const columns = document.querySelectorAll(".column");
-//   columns.forEach((column) => {
-//     column.querySelectorAll(".task").forEach((task) => task.remove());
-//   });
-// }
-
 function removeTasks() {
   const taskWrappers = document.querySelectorAll(".task-wrapper");
   taskWrappers.forEach((taskWrapper) => {
@@ -44,27 +37,12 @@ function removeTasks() {
   });
 }
 
-// function removePlaceholder() {
-//   const columns = document.querySelectorAll(".column");
-//   columns.forEach((column) => {
-//     column.querySelectorAll(".empty").forEach((empty) => empty.remove());
-//   });
-// }
-
 function removePlaceholder() {
   const taskWrappers = document.querySelectorAll(".task-wrapper");
   taskWrappers.forEach((taskWrapper) => {
     taskWrapper.querySelectorAll(".empty").forEach((empty) => empty.remove());
   });
 }
-
-// LÖSCHEN? NOCH STEHEN LASSEN
-
-// const columns = document.querySelectorAll(".column");
-// columns.forEach((column) => {
-//   column.querySelectorAll(".task").forEach((task) => task.remove());
-//   column.querySelectorAll(".empty").forEach((empty) => empty.remove());
-// });
 
 function createCategoryClass(category) {
   // from e.g. "Technical Task" to "technical-task" for correct CSS class
@@ -108,7 +86,7 @@ function addPlaceholdersToEmptyColumns() {
   const taskWrappers = document.querySelectorAll(".task-wrapper");
   taskWrappers.forEach((taskWrapper) => {
     if (!taskWrapper.querySelector(".task") && !taskWrapper.querySelector(".empty")) {
-      if (taskWrapper.dataset.task === "done") {
+      if (taskWrapper.dataset.category === "done") {
         taskWrapper.innerHTML += createTaskPlaceholderDone();
       } else {
         taskWrapper.innerHTML += createTaskPlaceholder();
@@ -170,7 +148,6 @@ async function checkInOutSubtask(taskId, subtaskId) {
   if (subtask) {
     subtask.edit = !subtask.edit;
     await putData("tasks/" + taskId, taskObj);
-
     if (subtaskProgress) {
       const numerus = taskObj.subtask.length === 1 ? "Subtask" : "Subtasks";
       const subtaskDone = taskObj.subtask.filter((st) => st.edit);
@@ -317,137 +294,54 @@ function clearTaskFormContainers() {
   secondBoardAddTask.innerHTML = "";
 }
 
-/*  Drag & Drop function OLD */
+// Drag and drop
 
-// function dragstartHandler(ev, id) {
-//   ev.dataTransfer.setData("text", id);
-//   ev.target.classList.add("dragging");
-// }
-
-// function dragendHandler(ev) {
-//   ev.target.classList.remove("dragging");
-// }
-
-// function dragoverHandler(ev) {
-//   ev.preventDefault();
-//   const column = ev.target.closest(".task-wrapper");
-//   const afterElement = getDragAfterElement(column, ev.clientY);
-//   const draggable = document.querySelector(".dragging");
-
-//   if (afterElement == null) {
-//     column.appendChild(draggable);
-//   } else {
-//     column.insertBefore(draggable, afterElement);
-//   }
-//   adjustPlaceholders();
-// }
-
-// function getDragAfterElement(column, y) {
-//   const draggableElements = [...column.querySelectorAll(".draggable:not(.dragging)")];
-
-//   return draggableElements.reduce(
-//     (closest, child) => {
-//       const box = child.getBoundingClientRect();
-//       const offset = y - box.top - box.height / 2;
-//       if (offset < 0 && offset > closest.offset) {
-//         return { offset: offset, element: child };
-//       } else {
-//         return closest;
-//       }
-//     },
-//     { offset: Number.NEGATIVE_INFINITY }
-//   ).element;
-// }
-
-// async function dropHandler(ev, category) {
-//   ev.preventDefault();
-//   const taskId = ev.dataTransfer.getData("text");
-//   const targetColumn = ev.target.closest(".task-wrapper");
-//   let taskObj = await loadData("tasks/" + taskId);
-//   taskObj.status = category;
-
-//   if (targetColumn) {
-//     // adjustPlaceholders();
-//     await putData("tasks/" + taskId, taskObj);
-//     await adjustTaskOrder(targetColumn);
-//   }
-// }
-
-// async function adjustTaskOrder(targetColumn) {
-//   const tasksInColumn = targetColumn.querySelectorAll(".draggable");
-
-//   if (tasksInColumn.length > 0) {
-//     for (let i = 0; i < tasksInColumn.length; i++) {
-//       const taskId = tasksInColumn[i].dataset.id;
-//       let taskObj = await loadData("tasks/" + taskId);
-//       taskObj.order = i;
-//       await putData("tasks/" + taskId, taskObj);
-//     }
-//   }
-// }
+function placeholderHover(event) {
+  event.preventDefault();
+  adjustPlaceholders();
+}
 
 function adjustPlaceholders() {
   removePlaceholder();
   addPlaceholdersToEmptyColumns();
 }
 
-/*  Drag & Drop function NEW */
-
-// async function handleSortableEnd(evt) {
-//   const column = evt.to;
-//   const category = column.getAttribute("data-category");
-//   const tasksInColumn = column.querySelectorAll(".draggable");
-
-//   for (let i = 0; i < tasksInColumn.length; i++) {
-//     const taskId = tasksInColumn[i].dataset.id;
-//     let taskObj = await loadData("tasks/" + taskId);
-//     taskObj.status = category;
-//     taskObj.order = i;
-//     await putData("tasks/" + taskId, taskObj);
-//   }
-
-//   adjustPlaceholders();
-// }
-
-// function hidePlaceholderInColumn(column) {
-//   column.querySelectorAll(".empty").forEach((empty) => empty.classList.add("hidden"));
-// }
-
-// function resetAllPlaceholders() {
-//   adjustPlaceholders();
-// }
-
-// function initDragAndDrop() {
-//   document.querySelectorAll("[data-category]").forEach((column) => {
-//     Sortable.create(column, {
-//       group: "tasks",
-//       animation: 150,
-//       delay: window.matchMedia("(pointer: coarse)").matches ? 150 : 0,
-//       // touchStartThreshold: 5,
-//       onMove: function (evt) {
-//         hidePlaceholderInColumn(evt.to);
-//         // test(evt);
-//       },
-//       onEnd: function (evt) {
-//         handleSortableEnd(evt);
-//         resetAllPlaceholders();
-//       },
-//     });
-//   });
-// }
-
-function test(ev) {
-  // if (ev && typeof ev.preventDefault === "function") {
-  //   ev.preventDefault();
-  // }
-  adjustPlaceholders();
-}
-
-let sortableInstances = [];
-
 function destroySortableInstances() {
   sortableInstances.forEach((instance) => instance.destroy());
   sortableInstances = [];
+}
+
+let sortableInstances = [];
+let placeholder = null;
+
+function getTaskHeight() {
+  const taskElement = document.querySelector(".task");
+  if (taskElement) {
+    return taskElement.offsetHeight;
+  }
+}
+
+function handleDragStart(evt) {
+  if (window.matchMedia("(max-width: 800px)").matches) {
+    const tasksInColumn = evt.from.querySelectorAll(".task:not(.dragging-task)");
+    if (tasksInColumn.length === 0) {
+      const taskHeight = getTaskHeight();
+      evt.from.style.minHeight = `${taskHeight}px`;
+      evt.from.classList.add("empty-dragging");
+    }
+  }
+}
+
+function handleDragMove(evt) {
+  hidePlaceholderInColumn(evt.to);
+}
+
+async function handleDragEnd(evt) {
+  document.querySelectorAll(".task-wrapper").forEach((wrapper) => {
+    wrapper.style.minHeight = "";
+  });
+  resetAllPlaceholders();
+  await handleSortableEnd(evt);
 }
 
 function initDragAndDrop() {
@@ -458,15 +352,11 @@ function initDragAndDrop() {
       group: "tasks",
       animation: 150,
       delay: window.matchMedia("(pointer: coarse)").matches ? 150 : 0,
-      onMove: function (evt) {
-        hidePlaceholderInColumn(evt.to);
-      },
-      onEnd: function (evt) {
-        handleSortableEnd(evt);
-        resetAllPlaceholders();
-      },
+      touchStartThreshold: 5,
+      onStart: handleDragStart,
+      onMove: handleDragMove,
+      onEnd: handleDragEnd,
     });
-
     sortableInstances.push(sortable);
   });
 }
@@ -500,7 +390,6 @@ function adjustPlaceholders() {
   addPlaceholdersToEmptyColumns();
 }
 
-// Add a resize event listener to reinitialize drag-and-drop on viewport changes
 window.addEventListener("resize", () => {
   initDragAndDrop();
 });

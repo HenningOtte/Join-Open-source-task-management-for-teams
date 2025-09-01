@@ -119,13 +119,13 @@
                     </div>
                 </header>
 
-                <div class="board">
+                <div class="board no-select">
                     <div class="column" data-task="to-do">
                         <div class="column-header">
                             <h3>To do</h3>
                             <img src="../assets/icons/plus_button.svg" alt="plus-button" onclick="addTask('to-do')">
                         </div>
-                        <div class="task-wrapper" data-category="to-do" ondragover="test(event)"></div>
+                        <div class="task-wrapper" data-category="to-do" ondragover="placeholderHover(event)"></div>
                     </div>
 
                     <div class="column" data-task="in-progress">
@@ -134,7 +134,8 @@
                             <img src="../assets/icons/plus_button.svg" alt="plus-button"
                                 onclick="addTask('in-progress')">
                         </div>
-                        <div class="task-wrapper" data-category="in-progress" ondragover="test(event)"></div>
+                        <div class="task-wrapper" data-category="in-progress" ondragover="placeholderHover(event)">
+                        </div>
                     </div>
 
                     <div class="column" data-task="await-feedback">
@@ -143,55 +144,17 @@
                             <img src="../assets/icons/plus_button.svg" alt="plus-button"
                                 onclick="addTask('await-feedback')">
                         </div>
-                        <div class="task-wrapper" data-category="await-feedback" ondragover="test(event)"></div>
+                        <div class="task-wrapper" data-category="await-feedback" ondragover="placeholderHover(event)">
+                        </div>
                     </div>
 
                     <div class="column" data-task="done">
                         <div class="column-header">
                             <h3>Done</h3>
                         </div>
-                        <div class="task-wrapper" data-category="done" ondragover="test(event)"></div>
+                        <div class="task-wrapper" data-category="done" ondragover="placeholderHover(event)"></div>
                     </div>
                 </div>
-
-                <!-- <div class="board">
-                    <div class="column" data-task="to-do">
-                        <div class="column-header">
-                            <h3>To do</h3>
-                            <img src="../assets/icons/plus_button.svg" alt="plus-button" onclick="addTask('to-do')">
-                        </div>
-                        <div class="task-wrapper" ondrop="dropHandler(event, 'to-do')"
-                            ondragover="dragoverHandler(event)"></div>
-                    </div>
-
-                    <div class="column" data-task="in-progress">
-                        <div class="column-header">
-                            <h3>In progress</h3>
-                            <img src="../assets/icons/plus_button.svg" alt="plus-button"
-                                onclick="addTask('in-progress')">
-                        </div>
-                        <div class="task-wrapper" ondrop="dropHandler(event, 'in-progress')"
-                            ondragover="dragoverHandler(event)"></div>
-                    </div>
-
-                    <div class="column" data-task="await-feedback">
-                        <div class="column-header">
-                            <h3>Await feedback</h3>
-                            <img src="../assets/icons/plus_button.svg" alt="plus-button"
-                                onclick="addTask('await-feedback')">
-                        </div>
-                        <div class="task-wrapper" ondrop="dropHandler(event, 'await-feedback')"
-                            ondragover="dragoverHandler(event)"></div>
-                    </div>
-
-                    <div class="column" data-task="done">
-                        <div class="column-header">
-                            <h3>Done</h3>
-                        </div>
-                        <div class="task-wrapper" ondrop="dropHandler(event, 'done')"
-                            ondragover="dragoverHandler(event)"></div>
-                    </div>
-                </div> -->
 
                 <div class="no-results hidden">No tasks found</div>
             </div>
