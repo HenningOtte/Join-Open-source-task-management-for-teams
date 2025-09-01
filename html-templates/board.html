@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/siderbar.css">
-    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/add-task.css">
     <link rel="stylesheet" href="../styles/board.css">
     <link rel="stylesheet" href="../styles/right-content-wrapper.css">
-    <link rel="stylesheet" href="../styles/add-task.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
 
     <script src="../scripts/api.js"></script>
     <script src="../scripts/board.js"></script>
@@ -70,17 +70,18 @@
                     Kanban Project Management Tool
                 </h2>
                 <div class="nav-imgs">
-                    <img class="help-symbol" src="../assets/icons/help.svg" alt="help-symbol">
+                    <a class="help-symbol" href="../html-templates/help.html" data-task="navLink"></a>
                     <button class="profile-picture" onclick="toggleMenu()"></button>
                 </div>
             </nav>
-            <div class="menu-container">
-                <div class="menu" id="menu">
-                    <a href="../html-templates/help.html" data-task="navLink" class="menu-item">Help</a>
-                    <a href="./legal-notice.html" data-task="navLink" class="menu-item">Legal Notice</a>
-                    <a href="./privacy-policy.html" data-task="navLink" class="menu-item">Privacy Police</a>
-                    <a href="../index.html" data-task="navLink" class="menu-item">Log out</a>
-                </div>
+        </section>
+
+        <section class="menu-container d-none" onclick="toggleMenu()">
+            <div class="menu" id="menu">
+                <a href="../html-templates/help.html" data-task="navLink" class="menu-item">Help</a>
+                <a href="./legal-notice.html" data-task="navLink" class="menu-item">Legal Notice</a>
+                <a href="./privacy-policy.html" data-task="navLink" class="menu-item">Privacy Police</a>
+                <a href="../index.html" data-task="navLink" class="menu-item">Log out</a>
             </div>
         </section>
 
@@ -90,8 +91,7 @@
                     <div class="mobile-header">
                         <h1>Board</h1>
                         <!-- mobile button -->
-                        <button class="add-btn add-btn-mobile hidden" id="add-task-btn-mobile"
-                            onclick="addTask('to-do')">
+                        <button class="add-btn add-btn-mobile hidden" id="add-task-btn-mobile" onclick="goToAddTaskPage('to-do')">
                             <span class="add-task-text">Add task</span>
                             <img src="../assets/icons/add.svg" alt="Add" class="add-icon">
                         </button>
@@ -124,6 +124,8 @@
                         <div class="column-header">
                             <h3>To do</h3>
                             <img src="../assets/icons/plus_button.svg" alt="plus-button" onclick="addTask('to-do')">
+                            <img class="repo-task-btn" src="../assets/icons/plus_button.svg" alt="plus-button"
+                                onclick="goToAddTaskPage('to-do')">
                         </div>
                         <div class="task-wrapper" data-category="to-do" ondragover="placeholderHover(event)"></div>
                     </div>
@@ -133,6 +135,9 @@
                             <h3>In progress</h3>
                             <img src="../assets/icons/plus_button.svg" alt="plus-button"
                                 onclick="addTask('in-progress')">
+                            <img class="repo-task-btn" src="../assets/icons/plus_button.svg" alt="plus-button"
+                                onclick="goToAddTaskPage('in-progress')">
+
                         </div>
                         <div class="task-wrapper" data-category="in-progress" ondragover="placeholderHover(event)">
                         </div>
@@ -143,6 +148,8 @@
                             <h3>Await feedback</h3>
                             <img src="../assets/icons/plus_button.svg" alt="plus-button"
                                 onclick="addTask('await-feedback')">
+                            <img class="repo-task-btn" src="../assets/icons/plus_button.svg" alt="plus-button"
+                                onclick="goToAddTaskPage('await-feedback')">
                         </div>
                         <div class="task-wrapper" data-category="await-feedback" ondragover="placeholderHover(event)">
                         </div>

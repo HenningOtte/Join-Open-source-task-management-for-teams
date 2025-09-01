@@ -22,6 +22,7 @@ body {
   font-family: Arial, sans-serif;
   display: flex;
   height: 100vh;
+  background-color: #f4f5f7;
 }
 
 img,

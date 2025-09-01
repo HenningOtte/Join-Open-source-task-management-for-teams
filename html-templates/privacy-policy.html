@@ -62,97 +62,107 @@
                     Kanban Project Management Tool
                 </h2>
                 <div class="nav-imgs">
-                    <img class="help-symbol" src="../assets/icons/help.svg" alt="help-symbol">
+                    <a class="help-symbol" href="../html-templates/help.html" data-task="navLink"></a>
                     <button class="profile-picture" onclick="toggleMenu()"></button>
                 </div>
             </nav>
-            <div class="menu-container">
-                <div class="menu" id="menu">
-                    <a href="../html-templates/help.html" data-task="navLink" class="menu-item">Help</a>
-                    <a href="./legal-notice.html" data-task="navLink" class="menu-item">Legal Notice</a>
-                    <a href="./privacy-policy.html" data-task="navLink" class="menu-item">Privacy Police</a>
-                    <a href="../index.html" data-task="navLink" class="menu-item">Log out</a>
-                </div>
+        </section>
+
+        <section class="menu-container d-none" onclick="toggleMenu()">
+            <div class="menu" id="menu">
+                <a href="../html-templates/help.html" data-task="navLink" class="menu-item">Help</a>
+                <a href="./legal-notice.html" data-task="navLink" class="menu-item">Legal Notice</a>
+                <a href="./privacy-policy.html" data-task="navLink" class="menu-item">Privacy Police</a>
+                <a href="../index.html" data-task="navLink" class="menu-item">Log out</a>
             </div>
         </section>
-        <section id="privacy-en" class="privacy-section">
-            <h1 class="header-task">Privacy Policy</h1>
-            <h2>1. Controller</h2>
-            <p class="spacer-bottom">
-                Henning Otte<br />
-                Email: <a href="mailto:HOtte@aol.com">HOtte@aol.com</a><br />
-                Location: Lower Saxony, Germany
-            </p>
 
-            <h2>2. General Information on Data Processing</h2>
-            <p class="spacer-bottom">
-                We take the protection of your personal data seriously. We process your data only as necessary and in
-                accordance with the GDPR.
-            </p>
+        <section class="privacy-section">
+            <div class="info-container">
+                <div class="page-header">
+                    <h1 class="header-task">Privacy Policy</h1>
+                    <a href="../html-templates/summary.html" data-task="navLink" class="blue-arrow"></a>
+                </div>
+                <h2>1. Controller</h2>
+                <p class="spacer-bottom">
+                    Henning Otte<br />
+                    Email: <a href="mailto:HOtte@aol.com">HOtte@aol.com</a><br />
+                    Location: Lower Saxony, Germany
+                </p>
 
-            <h2>3. Collection and Storage of Personal Data</h2>
-            <p class="privacy-subline">The following personal data may be processed when using our website:</p>
-            <ul class="spacer-bottom">
-                <li>Email address (upon registration)</li>
-                <li>IP address</li>
-                <li>User activity (e.g., created tasks, assignments)</li>
-                <li>Login and modification timestamps</li>
-            </ul>
+                <h2>2. General Information on Data Processing</h2>
+                <p class="spacer-bottom">
+                    We take the protection of your personal data seriously. We process your data only as necessary and
+                    in
+                    accordance with the GDPR.
+                </p>
 
-            <h2>4. User Accounts and Firebase</h2>
-            <p class="privacy-subline">
-                User account management and data storage are handled via <strong>Firebase</strong> by Google Ireland
-                Ltd., Gordon House, Barrow Street, Dublin 4, Ireland.
-            </p>
-            <p>Firebase may use:</p>
-            <ul class="privacy-subline">
-                <li>Firebase Authentication</li>
-                <li>Firebase Realtime Database or Firestore</li>
-                <li>Firebase Hosting</li>
-            </ul>
-            <p class="spacer-bottom">
-                Data may be transferred to the USA. Google is certified under the EU-U.S. Data Privacy Framework. More
-                info: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy
-                    Policy</a>.
-            </p>
+                <h2>3. Collection and Storage of Personal Data</h2>
+                <p class="privacy-subline">The following personal data may be processed when using our website:</p>
+                <ul class="spacer-bottom">
+                    <li>Email address (upon registration)</li>
+                    <li>IP address</li>
+                    <li>User activity (e.g., created tasks, assignments)</li>
+                    <li>Login and modification timestamps</li>
+                </ul>
 
-            <h2>5. Legal Basis for Processing</h2>
-            <p class="spacer-bottom">
-                Processing is based on Art. 6(1)(b) GDPR (contract performance) and Art. 6(1)(f) GDPR (legitimate
-                interest).
-            </p>
+                <h2>4. User Accounts and Firebase</h2>
+                <p class="privacy-subline">
+                    User account management and data storage are handled via <strong>Firebase</strong> by Google Ireland
+                    Ltd., Gordon House, Barrow Street, Dublin 4, Ireland.
+                </p>
+                <p>Firebase may use:</p>
+                <ul class="privacy-subline">
+                    <li>Firebase Authentication</li>
+                    <li>Firebase Realtime Database or Firestore</li>
+                    <li>Firebase Hosting</li>
+                </ul>
+                <p class="spacer-bottom">
+                    Data may be transferred to the USA. Google is certified under the EU-U.S. Data Privacy Framework.
+                    More
+                    info: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy
+                        Policy</a>.
+                </p>
 
-            <h2>6. Data Retention and Deletion</h2>
-            <p class="spacer-bottom">
-                Personal data is stored only as long as needed. Users can request account and data deletion at any time.
-            </p>
+                <h2>5. Legal Basis for Processing</h2>
+                <p class="spacer-bottom">
+                    Processing is based on Art. 6(1)(b) GDPR (contract performance) and Art. 6(1)(f) GDPR (legitimate
+                    interest).
+                </p>
 
-            <h2>7. International Data Transfers</h2>
-            <p class="spacer-bottom">
-                As Firebase is a Google service, data may be transferred outside the EU, including the USA. Google
-                provides adequate safeguards under GDPR.
-            </p>
+                <h2>6. Data Retention and Deletion</h2>
+                <p class="spacer-bottom">
+                    Personal data is stored only as long as needed. Users can request account and data deletion at any
+                    time.
+                </p>
 
-            <h2>8. Your Rights</h2>
-            <p>You have the right to:</p>
-            <ul class="privacy-subline">
-                <li>Access (Art. 15 GDPR)</li>
-                <li>Rectification (Art. 16 GDPR)</li>
-                <li>Erasure (Art. 17 GDPR)</li>
-                <li>Restriction of processing (Art. 18 GDPR)</li>
-                <li>Data portability (Art. 20 GDPR)</li>
-                <li>Objection (Art. 21 GDPR)</li>
-            </ul>
-            <p class="spacer-bottom">
-                Contact: <a href="mailto:HenningOtte91@gmail.com">HenningOtte91@gmail.com</a>
-            </p>
+                <h2>7. International Data Transfers</h2>
+                <p class="spacer-bottom">
+                    As Firebase is a Google service, data may be transferred outside the EU, including the USA. Google
+                    provides adequate safeguards under GDPR.
+                </p>
 
-            <h2>9. Changes to This Privacy Policy</h2>
-            <p class="spacer-bottom">
-                We reserve the right to update this Privacy Policy. The current version is always available on this
-                website.
-            </p>
-            <p><strong>Effective date:</strong> August 2025</p>
+                <h2>8. Your Rights</h2>
+                <p>You have the right to:</p>
+                <ul class="privacy-subline">
+                    <li>Access (Art. 15 GDPR)</li>
+                    <li>Rectification (Art. 16 GDPR)</li>
+                    <li>Erasure (Art. 17 GDPR)</li>
+                    <li>Restriction of processing (Art. 18 GDPR)</li>
+                    <li>Data portability (Art. 20 GDPR)</li>
+                    <li>Objection (Art. 21 GDPR)</li>
+                </ul>
+                <p class="spacer-bottom">
+                    Contact: <a href="mailto:HenningOtte91@gmail.com">HenningOtte91@gmail.com</a>
+                </p>
+
+                <h2>9. Changes to This Privacy Policy</h2>
+                <p class="spacer-bottom">
+                    We reserve the right to update this Privacy Policy. The current version is always available on this
+                    website.
+                </p>
+                <p><strong>Effective date:</strong> August 2025</p>
+            </div>
         </section>
     </main>
 </body>

@@ -57,7 +57,7 @@ function descriptionTaskTpl(description = "") {
   return `
         <div class="task-container">
             <label for="description-input" class="task-name">Description</label>
-            <textarea name="" id="description" class="textarea-description">${description}</textarea>
+            <textarea id="description" class="textarea-description">${description}</textarea>
         </div>
     `;
 }
@@ -150,7 +150,8 @@ function subtaskTpl() {
         <div class="task-container">
             <span class="task-name">Subtask</span>
             <div class="input-container">
-                <input type="text" id="subtask-input" placeholder="Add new subtask" maxlength="32" onkeydown="if(event.key==='Enter'){addSubtask()}">
+                <input type="text" id="subtask-input" placeholder="Add new subtask" maxlength="32" onkeydown="if(event.key==='Enter'){addSubtask()}" 
+                onclick="toggleBlueOutline(event)" onfocusout="toggleBlueOutline(event)">
                 <button type="button" class="btn-dropdown" id="subtask-btn" onclick="addSubtask()">
                     <img src="../assets/icons/add_blue.svg" alt="">
                 </button>
@@ -174,10 +175,12 @@ function editTaskTpl() {
 
 function okBtn(taskId) {
   return `
-        <button class="btn-create" onclick="saveEditedTask('${taskId}'); resetTaskData()">
-            Ok
-            <img src="../assets/icons/check.svg" alt="">
-        </button>
+        <div class="saveBtn-Container">
+            <button class="btn-create" onclick="saveEditedTask('${taskId}'); resetTaskData()">
+                Ok
+                <img src="../assets/icons/check.svg" alt="">
+            </button>
+        </div>
     `;
 }
 
@@ -309,7 +312,7 @@ function createSubtaskTemplate(taskId, subtaskArr) {
 }
 
 function createSubtaskListItem(taskId, subtaskObj) {
-  const checkedClass = subtaskObj.edit ? " checked" : "";
+  const checkedClass = subtaskObj.checked ? " checked" : "";
   return `
     <li class="subtask-item mb-14" data-id="${subtaskObj.id}">
       <button class="btn-subtask btn-transparent ${checkedClass}" data-id="${subtaskObj.id}" onclick="checkInOutSubtask('${taskId}', '${subtaskObj.id}')"></button>
@@ -395,10 +398,21 @@ function createContactElement(user, id) {
 function navLink(icon, link, section) {
   return `
         <li class="nav-link">
-            <div class="img-wrapper">
+            <a href="${link}">
                 <img src="../assets/icons/${icon}.svg" alt="">
-            </div>
-            <a href="${link}" data-task="navLink">${section}</a>
+                ${section}
+            </a>
+        </li>
+    `;
+}
+
+function sidebarLinkTemplate() {
+  return `
+        <li class="nav-link">
+            <a href="../index.html">
+                <img src="../assets/icons/summary.svg" alt="summary">
+                Summary
+            </a>
         </li>
     `;
 }

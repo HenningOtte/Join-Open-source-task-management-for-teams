@@ -24,6 +24,22 @@
 
 .nav-imgs {
   display: flex;
+  align-items: center;
+}
+
+.help-symbol {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background-image: url(../assets/icons/help.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.help-symbol:hover {
+  background-color: rgb(209, 209, 209, 0.5);
 }
 
 .profile-picture {
@@ -46,34 +62,42 @@
 }
 
 .profile-picture:hover {
-  background-color: #d1d1d1;
+  background-color: rgb(209, 209, 209, 0.5);
 }
 
 .menu-container {
   overflow-x: hidden;
   position: absolute;
-  width: 180px;
-  top: 96px;
-  right: 0px;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
   display: flex;
   flex-direction: row-reverse;
+  z-index: 1;
 }
 
 .menu {
+  position: relative;
+  top: 116px;
+  height: 160px;
+  width: 156px;
   display: flex;
   flex-direction: column;
-  height: 158px;
-  width: 150px;
-  background-color: #2a3647;
+  background-color: #2A3647;
   border-radius: 20px 0 20px 20px;
-  transform: translateX(150px);
+  transform: translateX(160px);
   transition: transform 125ms ease-in;
-  z-index: 10;
   overflow: hidden;
+  z-index: 1;
+}
+
+.menu a:first-child {
+  display: none;
 }
 
 .menu-translateX {
-  transform: translateX(-30px);
+  transform: translateX(-24px);
 }
 
 .menu-item {
@@ -83,6 +107,7 @@
   align-items: center;
   cursor: pointer;
   padding-left: 24px;
+  z-index: 1;
 }
 
 .menu-item:hover {
@@ -96,10 +121,16 @@
 } */
 
 @media (max-width: 680px) {
+  #right-content-wrapper {
+    margin-top: 0;
+  }
+
   #navbar {
-    position: fixed;
-    top: 0px;
-    width: 100vw;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    overflow: visible;
   }
 }
 
@@ -119,9 +150,21 @@
   .nav-imgs img {
     display: none;
   }
+
+  .menu {
+    height: 216px;
+  }
+
+  .menu a:first-child {
+    display: flex;
+  }
+
+  .help-symbol {
+    display: none;
+  }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 400px) {
   .navbar {
     padding: 0 16px;
   }

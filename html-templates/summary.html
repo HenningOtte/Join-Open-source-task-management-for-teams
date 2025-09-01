@@ -63,17 +63,18 @@
                     Kanban Project Management Tool
                 </h2>
                 <div class="nav-imgs">
-                    <img class="help-symbol" src="../assets/icons/help.svg" alt="help-symbol">
+                    <a class="help-symbol" href="../html-templates/help.html" data-task="navLink"></a>
                     <button class="profile-picture" onclick="toggleMenu()"></button>
                 </div>
             </nav>
-            <div class="menu-container">
-                <div class="menu" id="menu">
-                    <a href="../html-templates/help.html" data-task="navLink" class="menu-item">Help</a>
-                    <a href="./legal-notice.html" data-task="navLink" class="menu-item">Legal Notice</a>
-                    <a href="./privacy-policy.html" data-task="navLink" class="menu-item">Privacy Police</a>
-                    <a href="../index.html" data-task="navLink" class="menu-item">Log out</a>
-                </div>
+        </section>
+
+        <section class="menu-container d-none" onclick="toggleMenu()">
+            <div class="menu" id="menu">
+                <a href="../html-templates/help.html" data-task="navLink" class="menu-item">Help</a>
+                <a href="./legal-notice.html" data-task="navLink" class="menu-item">Legal Notice</a>
+                <a href="./privacy-policy.html" data-task="navLink" class="menu-item">Privacy Police</a>
+                <a href="../index.html" data-task="navLink" class="menu-item">Log out</a>
             </div>
         </section>
 

@@ -12,6 +12,8 @@ function renderBoard(tasks) {
       categories[task[1].status].push(task);
     });
 
+    // console.log(categories);
+
     for (let status in categories) {
       let column = document.querySelector(`.column[data-task="${status}"]`);
       let taskWrapper = column.querySelector(".task-wrapper");
@@ -53,7 +55,7 @@ function checkForSubtask(subtasks) {
   if (subtasks) {
     let progressHTML = "";
     const numerus = subtasks.length === 1 ? "Subtask" : "Subtasks";
-    const subtaskDone = subtasks.filter((subtask) => subtask.edit);
+    const subtaskDone = subtasks.filter((subtask) => subtask.checked);
     progressHTML += createProgressWrapper(subtasks, numerus, subtaskDone);
     return progressHTML;
   } else {
@@ -146,11 +148,11 @@ async function checkInOutSubtask(taskId, subtaskId) {
   subtaskRef.classList.toggle("checked");
 
   if (subtask) {
-    subtask.edit = !subtask.edit;
+    subtask.checked = !subtask.checked;
     await putData("tasks/" + taskId, taskObj);
     if (subtaskProgress) {
       const numerus = taskObj.subtask.length === 1 ? "Subtask" : "Subtasks";
-      const subtaskDone = taskObj.subtask.filter((st) => st.edit);
+      const subtaskDone = taskObj.subtask.filter((st) => st.checked);
       subtaskProgress.innerHTML = progessTemplate(taskObj.subtask, numerus, subtaskDone);
     }
   }
@@ -212,10 +214,10 @@ async function editTask(taskId) {
 }
 
 function prepareOverlay(taskId) {
-  const overlayWrapper = document.getElementById("overlay-wrapper");
-  overlayWrapper.innerHTML = "";
-  overlayWrapper.innerHTML += editTaskTpl();
-  overlayWrapper.innerHTML += okBtn(taskId);
+  const overlayContent = document.querySelector(".overlay-content");
+  overlayContent.innerHTML = "";
+  overlayContent.innerHTML += editTaskTpl();
+  overlayContent.innerHTML += okBtn(taskId);
 }
 
 function resetTaskData() {
@@ -234,6 +236,7 @@ function importEditElements(task) {
   editTaskContainer.innerHTML += categoryTaskTpl();
   editTaskContainer.innerHTML += subtaskTpl();
   taskStatus = task.status;
+  order = task.order;
 }
 
 function changeCategorie(task) {
@@ -407,4 +410,20 @@ async function initBoard() {
 
 document.addEventListener("DOMContentLoaded", () => {
   initBoard();
+  closeAddTaskMobile();
 });
+
+function closeAddTaskMobile() {
+  window.addEventListener("resize", () => {
+    if (window.innerWidth <= 590) {
+      let addTaskBoard = document.getElementById("add-task-board");
+      if (!addTaskBoard.classList.contains("d-none")) {
+        const addTask = document.getElementById("add-task-board");
+        const container = document.getElementById("task-overlay");
+        addTask.classList.toggle("transparent-background");
+        container.classList.toggle("transit");
+        addTask.classList.toggle("d-none");
+      };
+    }
+  })
+}
