@@ -210,9 +210,15 @@
   grid-row-start: 3;
 }
 
+@media (max-width: 1115px) {
+  .main-wrapper {
+    margin: 64px 0 32px 48px;
+  }
+}
+
 @media (max-width: 850px) {
   #content-wrapper {
-    padding-top: 48px !important;
+    /* padding-top: 48px !important; */
     margin: 0 64px;
   }
 

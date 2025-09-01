@@ -626,7 +626,7 @@ Media queries Board
   }
 
   .add-btn-mobile {
-    display: block;
+    display: block !important;
   }
 
   .add-btn-desktop {
@@ -638,7 +638,7 @@ Media queries Board
   }
 
   .search-field-wrapper-mobile {
-    display: block;
+    display: block !important;
     margin: 25px 0;
   }
 
