@@ -24,7 +24,7 @@ function createSubObj(id, value) {
     id: id,
     value: value,
     edit: false,
-    checked: false 
+    checked: false
   };
 }
 
@@ -70,9 +70,8 @@ function toggleAssignedDropdown() {
   refs.dropdown.classList.toggle("d-none");
   refs.overlay.classList.toggle("d-none");
   refs.btn.classList.toggle("rotate-180deg");
-  refs.btn.classList.contains("rotate-180deg")
-    ? filterUsers()
-    : resetAssigneeFilter();
+  refs.input.parentElement.classList.toggle("blue-border")  
+  refs.btn.classList.contains("rotate-180deg") ? filterUsers() : resetAssigneeFilter();
 }
 
 function filterUsers(input) {
@@ -111,12 +110,16 @@ function getCategoryRefs() {
 
 function toggleCategoryDropdown() {
   const r = getCategoryRefs();
-
   r.container.classList.toggle("zindex-12");
   r.container.classList.toggle("boxshadow");
   r.dropdown.classList.toggle("d-none");
   r.overlay.classList.toggle("d-none");
   r.btn.classList.toggle("rotate-180deg");
+  r.btn.parentElement.classList.toggle("blue-border");
+}
+
+function toggleBlueOutline(e) {
+  e.target.parentElement.classList.toggle("blue-border");
 }
 
 function activePriority(prio) {
@@ -234,7 +237,8 @@ function initialsFromName(user) {
 function assignedUser(name) {
   let index = searchUserIndex(name);
   const refs = getAssigneeRefs();
-  if (users[index].assigned === false) {
+  if (!users[index]) return  
+  if (users[index].assigned == false) {
     users[index].assigned = true;
     loadUsers();
     loadAssignedUserIcons();

@@ -7,6 +7,10 @@
   --turquoise: #1fd7c1;
 }
 
+.blue-border {
+  border: 1px solid #29abe2 !important;
+}
+
 button div {
   user-select: none;
   pointer-events: none;
@@ -95,6 +99,12 @@ button div {
   border: 1px solid #d1d1d1;
   border-radius: 8px;
   background-color: white;
+  resize: none;
+}
+
+.textarea-description:focus {
+  border: 1px solid #29abe2;
+  outline: #29abe2;
 }
 
 .date-field {
@@ -299,6 +309,11 @@ button div {
   background-image: url(../assets/icons/cancel.svg);
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.saveBtn-Container {
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .btn-create {

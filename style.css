@@ -27,9 +27,7 @@ main {
 }
 
 .privacy-section {
-    overflow-y: auto;
-    box-sizing: border-box;
-    padding: 64px 64px 64px 120px;
+    max-width: 1440px;
 }
 
 .privacy-section h2 {
@@ -42,6 +40,10 @@ main {
 
 .privacy-section li {
     list-style: inside;
+}
+
+.info-container {
+    margin: 64px 64px 32px 64px;
 }
 
 .privacy-subline {
@@ -83,14 +85,16 @@ main {
     color: #29ABE2;
 }
 
-@media (max-width: 992px) {
-    .privacy-section {
-        padding: 40px;
+@media (max-width: 590px) {
+    .info-container {
+        padding: 0px;
+        margin: 64px 32px;
     }
 }
 
-@media (max-width: 400px) {
-    .privacy-section {
-        padding: 32px;
+@media (max-width: 480px) {
+    .info-container {
+        padding: 0px;
+        margin: 64px 16px 32px 16px;
     }
 }
