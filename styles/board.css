@@ -131,7 +131,6 @@ Board
 }
 
 .task-wrapper {
-  /* position: relative; */
   height: 100%;
 }
 
@@ -141,13 +140,40 @@ Board
   border-radius: 24px;
   padding: 16px;
   margin-bottom: 10px;
+  overflow-wrap: break-word;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: box-shadow ease 250ms;
+  transition: box-shadow ease 150ms;
+}
+
+.task p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.task h4 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
 .task:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1), inset 0 0 0 2px #3b82f6;
+}
+
+.overlay-content p {
+  max-height: calc(1.2em * 4);
+  line-height: 1.2em;
+  overflow-y: auto;
+}
+
+.overlay-content h1 {
+  max-height: calc(1.2em * 2);
+  line-height: 1.2em;
+  overflow-y: auto;
 }
 
 .tag {
@@ -256,7 +282,7 @@ Overlay
 
   /* fade-in / fade-out effect  */
   opacity: 0;
-  transition: opacity 250ms ease;
+  transition: opacity 150ms ease;
 }
 
 .visible {
@@ -275,7 +301,7 @@ Overlay
 
   /* translate(-50%, -50%) is for centering the overlay-wrapper in the correct position */
   transform: translate(-50%, -50%);
-  transition: all 250ms ease-in-out;
+  transition: all 150ms ease-in-out;
 }
 
 .overlay-outer {
@@ -291,6 +317,7 @@ Overlay
   background-color: #fff;
   padding: 48px 40px;
   margin: 0 auto;
+  overflow-wrap: break-word;
 }
 
 .transit {
@@ -343,6 +370,8 @@ Overlay
   list-style: none;
   padding: 0;
   margin: 0;
+  max-height: 185px;
+  overflow-y: auto;
 }
 
 .assigned-list li {
@@ -367,6 +396,8 @@ Overlay
   list-style: none;
   padding: 0;
   margin: 0;
+  max-height: 105px;
+  overflow-y: auto;
 }
 
 .subtask-item {
@@ -450,7 +481,7 @@ Add-Task
   align-items: center;
   justify-content: center;
   z-index: 11;
-  transition: background-color 0.25s ease;
+  transition: background-color 0.15s ease;
 }
 
 .transparent-background {
@@ -497,7 +528,7 @@ Add-Task
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: all 250ms ease-in-out;
+  transition: all 150ms ease-in-out;
 }
 
 .transit {

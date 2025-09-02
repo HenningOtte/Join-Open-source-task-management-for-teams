@@ -219,7 +219,7 @@
 @media (max-width: 850px) {
   #content-wrapper {
     /* padding-top: 48px !important; */
-    margin: 0 64px;
+    padding: 0 64px;
   }
 
   .main-wrapper {
@@ -278,7 +278,7 @@
 
 @media (max-width: 590px) {
   #content-wrapper {
-    margin: 0 32px;
+    padding: 0 32px;
   }
 
   .header-title {
@@ -315,7 +315,7 @@
   }
 
   #content-wrapper {
-    margin: 0 16px;
+    padding: 0 16px;
   }
 
   .metric-icon {
@@ -337,9 +337,9 @@
     height: 20px;
   }
 
-  .metric-label {
+  /* .metric-label {
     font-size: 0.7rem;
-  }
+  } */
 
   .parent {
     grid-template-rows: repeat(3, 116px);
