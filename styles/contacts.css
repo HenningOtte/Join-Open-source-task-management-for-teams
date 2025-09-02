@@ -408,14 +408,15 @@ body {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 .info-container {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  padding-left: 60px;
   font-size: 20px;
+  padding: 64px 64px 32px 64px;
 }
 
 .edit-delete-container {
@@ -454,7 +455,7 @@ body {
   display: none;
   position: absolute;
   right: 8px;
-  bottom: 116px;
+  bottom: 124px;
   height: 100px;
   width: 116px;
   border-radius: 16px 16px 0 16px;
@@ -490,7 +491,6 @@ body {
   flex-direction: column;
   transform: translateX(1300px);
   transition: transform 250ms ease-in;
-  padding-top: 40px;
 }
 
 .translatex-user {
@@ -524,7 +524,7 @@ h3 {
 }
 
 .information-field {
-  margin: 40px 0px 50px;
+  margin: 24px 0px 24px;
 }
 
 .users-field {
@@ -620,7 +620,7 @@ h3 {
   }
 
   .info-container {
-    padding-left: 24px;
+    padding: 40px 0 0 24px;    
   }
 }
 
@@ -646,7 +646,7 @@ h3 {
 
   .modal-left-close {
     padding-top: 24px;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     height: auto;
     display: flex;
     flex-direction: row-reverse;
@@ -701,6 +701,7 @@ h3 {
   }
 
   .contact-field {
+    margin-bottom: 80px;
     display: none;
     margin-top: 96px;
     position: absolute;
@@ -737,12 +738,24 @@ h3 {
     display: none;
   }
 
+  .contacts-bar {
+    padding: 40px 16px 40px 16px;
+  }
+
   .open-edit-delete {
     display: block;
   }
 
   .user-edit-container {
     display: block;
+  }
+
+  .modal  {
+    height: 656px;
+  }
+
+  .avatar-container {
+    margin-bottom: 16px;
   }
 }
 
@@ -759,6 +772,24 @@ h3 {
 
   .input-group-contact input::placeholder {
     font-size: 14px;
+  }
+
+  .avatar-circle {
+    height: 108px;
+    width: 108px;
+    font-size: 40px;
+  }
+
+  .user-name-container {
+    gap: 16px;
+  }
+
+  .contact-title {
+    padding: 16px 16px;
+  }
+
+  .info-container {
+    padding: 16px;
   }
 
   .modal-right {

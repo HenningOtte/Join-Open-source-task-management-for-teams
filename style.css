@@ -41,8 +41,7 @@ main {
 .privacy-section li {
   list-style: inside;
 }
-
-.info-container {
+.support-container {
   margin: 64px 64px 32px 64px;
 }
 
@@ -86,15 +85,15 @@ main {
 }
 
 @media (max-width: 590px) {
-  .info-container {
-    padding: 0px;
-    margin: 64px 32px;
-  }
+    .support-container {
+        padding: 0px;
+        margin: 64px 32px;
+    }
 }
 
 @media (max-width: 480px) {
-  .info-container {
-    padding: 0px;
-    margin: 64px 16px 32px 16px;
-  }
+    .support-container {
+        padding: 0px;
+        margin: 64px 16px 32px 16px;
+    }
 }

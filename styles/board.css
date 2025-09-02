@@ -509,8 +509,9 @@ Edit-Task
 ---------------------------------------------- */
 
 .editTask-container {
-  width: 396px;
-  max-height: 664px;
+  width: 100%;
+  max-height: 496px;
+  overflow-y: auto;
   padding-right: 8px;
   display: flex;
   flex-direction: column;
@@ -520,6 +521,10 @@ Edit-Task
 .close-edit-conatiner {
   display: flex;
   flex-direction: row-reverse;
+}
+
+.saveBtn-Container {
+  margin-top: 16px;
 }
 
 /* -------------------------------------------
@@ -691,6 +696,26 @@ Media queries Board
 
   .overlay-content {
     font-size: 14px;
+    padding: 24px;
+  }
+
+  .sub-item-editing {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .sub-item-editing input {
+    flex-grow: 0;
+  }
+
+  .sub-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .sub-item span {
+    display: none;
   }
 
   .tag {
